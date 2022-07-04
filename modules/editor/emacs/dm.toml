@@ -1,0 +1,30 @@
+name = "Emacs"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Custom <<BOLD>>emacs<<RESET>> configuration mostly focusing on <<BOLD>>org-mode<<RESET>>.
+"""
+
+[variables]
+PACMAN = [
+  "emacs",  # Base package.
+  "ghostscript",  # Additional required packages..
+  "plantuml", # To be able to use plantuml based images in org files.
+]
+AUR = [
+  "bdf-unifont",  # Custom font.
+]
+ALIAS = [
+  "org='cd ~/org'",
+]
+
+[[links]]
+name = "Initialization file"
+path_to_target = "./config/init.el"
+path_to_symlink = "$HOME/dummy_dm/.config/emacs/init.el"
+
+[[links]]
+name = "Custom org based configuration"
+path_to_target = "./config/conf.org"
+path_to_symlink = "$HOME/dummy_dm/.config/emacs/conf.org"

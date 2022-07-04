@@ -1,0 +1,22 @@
+name = "Kitty"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Custom kitty configuration.
+"""
+
+[variables]
+PACMAN = [
+  "kitty",
+]
+
+[[links]]
+name = "Config file"
+path_to_target = "./config/kitty.conf"
+path_to_symlink = "$HOME/.config/kitty/kitty.conf"
+
+[[links]]
+name = "Current theme file"
+path_to_target = "./config/themes/japanesque.conf"
+path_to_symlink = "$HOME/.config/kitty/theme.conf"

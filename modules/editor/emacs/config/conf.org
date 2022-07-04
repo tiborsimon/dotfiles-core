@@ -1,0 +1,586 @@
+#+TITLE: Emacs configuration
+#+DESCRIPTION: An org-babel based emacs configuration
+#+LANGUAGE: en
+#+PROPERTY: results silent
+#+TAGS: ticket(t) review(r) issue(i) django(d) flask(f)
+#+SEQ_TODO: RECURRING(R) TODO(t!) SOMEDAY(s!) IN_REVIEW(r!) NEXT(n!) WAITING(w@) | DONE(d@) CANCELLED(c@) SZAMLAZVA(i!) FIZETVE(f!)
+#+STARTUP: overview
+
+
+* Emacs
+** Essentials
+*** Custom file location
+Details: https://stackoverflow.com/a/5058752/1565331
+
+#+begin_src emacs-lisp
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+#+end_src
+
+*** Splash Screen
+Remove splash screen and use *scratch* instead as the home buffer.
+
+#+begin_src emacs-lisp
+(setq inhibit-startup-message t
+      inhibit-startup-echo-area-message t)
+#+end_src
+
+*** Highlight line mode
+It is better to have the current line highlighted.
+
+#+begin_src emacs-lisp
+(global-hl-line-mode 1)
+#+end_src
+
+*** Menu Bar
+Switch the Menubar off by default (I like to keep everything clean)
+
+#+begin_src emacs-lisp
+(menu-bar-mode -1)
+#+end_src
+
+*** Scroll Bar
+Remove Scroll Bars
+
+#+begin_src emacs-lisp
+(scroll-bar-mode -1)
+#+end_src
+
+*** Tool Bar
+Remove Tool Bars
+
+#+begin_src emacs-lisp
+(tool-bar-mode -1)
+#+end_src
+
+*** Tool Tips
+Tool Tips in echo area:
+
+#+begin_src emacs-lisp
+(tooltip-mode -1)
+(setq tooltip-use-echo-area t)
+#+end_src
+
+*** Smooth scrolling
+Scrolling in emacs is very jittery by default as it works in a paging mode by
+default. The following settings solves this issue:
+
+#+begin_src emacs-lisp
+(setq scroll-step 1
+      scroll-conservatively 101
+      scroll-margin 3
+      scroll-preserve-screen-position 't)
+#+end_src
+
+*** Lockfile and backup handling
+#+begin_src emacs-lisp
+(setq create-lockfiles nil)
+(setq make-backup-files nil)
+#+end_src
+
+*** Disable warning window
+#+begin_src emacs-lisp
+(setq native-comp-async-report-warnings-errors nil)
+#+end_src
+
+*** Disable vc mode
+
+#+begin_src emacs-lisp
+(eval-after-load "vc" '(remove-hook 'find-file-hook 'vc-find-file-hook))
+(setq vc-handled-backends nil)
+#+end_src
+
+** Font
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil
+                    :family "Source Code Pro"
+                    :height 100
+                    :weight 'normal
+                    :width 'normal)
+#+end_src
+
+** Themes
+*** Install Themes from Repos
+List of themes to install.
+
+#+begin_src emacs-lisp
+(use-package darkokai-theme
+  :ensure t
+  :defer t)
+(use-package spacemacs-theme
+  :ensure t
+  :defer t)
+#+end_src
+
+*** Load Current default theme
+#+begin_src emacs-lisp
+(load-theme 'spacemacs-dark t)
+#+end_src
+
+** Plugins
+*** Evil mode
+**** Base
+Install EVIL (if not yet installed), and enable it.
+
+#+begin_src emacs-lisp
+;; Evil Mode
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1)
+  (define-key evil-motion-state-map ";" 'evil-ex)
+
+  ;; Window navigation
+  (define-key evil-motion-state-map (kbd "C-l") 'windmove-right)
+  (define-key evil-motion-state-map (kbd "C-h") 'windmove-left)
+  (define-key evil-motion-state-map (kbd "C-j") 'windmove-down)
+  (define-key evil-motion-state-map (kbd "C-k") 'windmove-up)
+)
+#+end_src
+#
+**** Evil undo system
+#+begin_src emacs-lisp
+(use-package undo-fu
+  :ensure t
+  :config
+  (setq evil-undo-system 'undo-fu)
+  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
+  (define-key evil-normal-state-map "\C-r" 'undo-fu-only-redo)
+)
+#+end_src
+
+**** Evil leader
+#+begin_src emacs-lisp
+(use-package evil-leader
+  :ensure t
+  :config
+  (global-evil-leader-mode t)
+  (evil-leader/set-leader "<SPC>")
+
+  ;; Save all buffers without a question
+  (defun my-save-all () (interactive) (save-some-buffers t))
+
+  (evil-leader/set-key
+    "fs" 'save-buffer
+    "fS" 'save-some-buffers
+    "fW" 'my-save-all
+    "e" 'ranger
+    "b" 'buffer-menu-other-window
+  )
+)
+#+end_src
+
+**** Evil surround
+#+begin_src emacs-lisp
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode)
+)
+#+end_src
+
+**** Evil indent plus
+#+begin_src emacs-lisp
+(use-package evil-indent-plus
+  :ensure t)
+#+end_src
+
+**** Key chords
+#+begin_src emacs-lisp
+(use-package key-chord
+  :ensure t
+  :config
+  (key-chord-mode 1)
+  (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+  (key-chord-define evil-visual-state-map "jk" 'evil-normal-state)
+  )
+#+end_src
+
+**** Powerline evil
+#+begin_src emacs-lisp
+(use-package powerline-evil
+  :ensure t
+  :config
+  (powerline-evil-vim-theme)
+  )
+#+end_src
+
+*** Which-key
+Adding a minor mode to display the started key maps.
+
+#+begin_src emacs-lisp
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode 1)
+  )
+#+end_src
+
+*** Ranger
+#+begin_src emacs-lisp
+(use-package ranger
+  :ensure t
+  :config
+  (evil-leader/set-key
+    "e" 'ranger
+  )
+)
+#+end_src
+
+* Org Mode
+** Base
+Install org-mode and configure it.
+
+#+begin_src emacs-lisp
+(use-package org
+  :ensure t
+  :config
+)
+#+end_src
+
+** Default directory
+#+begin_src emacs-lisp
+(setq default-directory "~/org")
+#+end_src
+
+** Essential key mappings
+#+begin_src emacs-lisp
+(evil-leader/set-key-for-mode 'org-mode
+  "m ," 'org-ctrl-c-ctrl-c
+)
+;; Had to add this explicit org-cycle mapping as the new wayland based emacs
+;; build with native comp somehow removed it. (AUR: emacs-gcc-wayland-devel-bin)
+(define-key evil-normal-state-map (kbd "<tab>") 'org-cycle)
+#+end_src
+
+** Fill column
+Automatic line wrapping:
+
+#+begin_src emacs-lisp
+(setq-default fill-column 82)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+#+end_src
+
+** Heading formatting
+Stop the org-level headers form increasing in height relative to the other text.
+
+#+begin_src emacs-lisp
+(defun my/org-mode-hook ()
+  (dolist (face '(org-level-1
+                  org-level-2
+                  org-level-3
+                  org-level-4
+                  org-level-5))
+    (set-face-attribute face nil :weight 'semi-bold :height 1.0)))
+
+(add-hook 'org-mode-hook 'my/org-mode-hook)
+#+end_src
+
+** Indent mode
+Turn on indent mode on startup.
+
+#+begin_src emacs-lisp
+(setq org-startup-indented t)
+#+end_src
+
+** Clocking
+*** Global clock handling
+By default clocktables only will calculate times in the current year. This is not
+a good way if we have clocking data spanning over many years. This settings will
+make org-mode to use all data available.
+
+#+begin_src  emacs-lisp
+(setq org-clock-display-default-range 'untilnow)
+#+end_src
+
+*** Clocking into drawer
+#+begin_src emacs-lisp
+(setq org-clock-into-drawer "CLOCKING")
+#+end_src
+
+*** Key mappings
+#+begin_src emacs-lisp
+(evil-leader/set-key-for-mode 'org-mode
+  "m c i" 'org-clock-in
+  "m c o" 'org-clock-out
+  "m c g" 'org-clock-goto
+  "m c d" 'org-clock-display
+  "m c U" 'org-update-all-dblocks
+)
+#+end_src
+
+*** Clocktable customizations
+The clocktable functionality displays the clocked stuff in days which is not
+good. We want to displya them in hours even if it exeeds 24 hours. This function
+will solve it:
+
+#+begin_src emacs-lisp
+(defun my-minutes-in-org-time (time)
+  (/ (let ((re  "\\(\\([0-9]+\\)d \\)?\\([0-9]+\\):\\([0-9]+\\)")
+        (values '(2 3 4)))
+    (save-match-data
+      (catch 'exit
+        (if (not (string-match re time))
+            (throw 'exit 0.)))
+      (let ((values (mapcar (lambda (num)
+                              (string-to-number ;; convert to number
+                               (or (match-string num time) ;; the part of the regex that matches
+                                   "0"))) ;; or zero in case no days exist, then match-string is nil
+                            values)))
+        (let ((days (nth 0 values))
+              (hours (nth 1 values))
+              (minutes (nth 2 values)))
+          (+ (* 60
+                (+ (* 24 days)
+                   hours))
+             minutes))))) 60.0)
+)
+#+end_src
+
+** Logs
+*** Separate drawer
+Logs should go into a separate drawer:
+
+#+begin_src emacs-lisp
+(setq org-log-into-drawer t)
+#+end_src
+
+*** Key bindings
+#+begin_src emacs-lisp
+(evil-leader/set-key-for-mode 'org-mode
+  "m z" 'org-add-note
+)
+#+end_src
+
+** Todo items
+*** Default logging for states
+Setting an item as done or rescheduling it should trigger a note:
+
+#+begin_src emacs-lisp
+(setq org-log-done "note")
+(setq org-log-reschedule "note")
+#+end_src
+
+*** Key bindings
+#+begin_src emacs-lisp
+(evil-leader/set-key-for-mode 'org-mode
+  "m t" 'org-todo
+  "m s" 'org-schedule
+  "m d" 'org-deadline
+)
+#+end_src
+
+*** File based global headers
+This is only a reminder on how to add a global file scoped tag definition with
+automatic timestamp and note insertion.
+
+#+begin_src text
+#+SEQ_TODO: RECURRING(R) TODO(t!) SOMEDAY(s!) IN_REVIEW(r!) NEXT(n!) WAITING(w@) | DONE(d@) CANCELLED(c@) SZAMLAZVA(i!) FIZETVE(f!)
+#+end_src
+
+1. The *todo* and *done* states are separated from each other with a pipe.
+2. The first *todo* item will be used for the recurring tasks on completition.
+3. The letter in the parenthesis after the name will be the shortcut in the
+   interactive menu.
+4. An exclamation mark ~!~ after the shortcut will trigger a timestamp insertion into
+   the logbook on completition.
+5. An at ~@~ mark will initiate a note insertion on completition.
+
+** Refile
+*** Logging the refile action
+If a refile action is issued on an item, the item's logbook will be updated.
+
+#+begin_src emacs-lisp
+(setq org-log-refile t)
+#+end_src
+
+*** Refile targets
+We are allowing all agenda files to be targets:
+
+#+begin_src emacs-lisp
+(setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
+#+end_src
+
+*** Key bindigs
+#+begin_src emacs-lisp
+(evil-leader/set-key-for-mode 'org-mode
+  "m r" 'org-refile
+)
+#+end_src
+
+*** Auto save on refile
+For some reason ~org-refile~ isn't saving on refile by default..
+Note, that this is not perfect.. If you want to add a note during refile, that
+note wont be saved automatically.. I got tired of this, will manually save all
+files after a refile..
+
+#+begin_src emacs-lisp
+(advice-add 'org-refile :after
+        (lambda (&rest _)
+        (org-save-all-org-buffers)))
+#+end_src
+
+*** Reverse note order
+To put the refiled stuff on the top of the target.
+
+#+begin_src emacs-lisp
+(setq org-reverse-note-order t)
+#+end_src
+
+** Capture
+*** Global key mapping
+
+Setting up a keymap that would be available in every buffer and mode:
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "<f6>") 'org-capture)
+#+end_src
+
+*** Capture templates
+
+#+begin_src emacs-lisp
+(defun my-weekly-review-function ()
+  (beginning-of-buffer)
+  (re-search-forward (format-time-string "** %Y-W%V"))
+)
+
+(setq org-capture-templates
+ '(
+    (
+      "t" "Todo" entry (file+headline "~/org/refile.org" "Tasks")
+      (file "~/org/templates/task.capture")
+      :clock-in t :clock-resume t
+    )
+    (
+       "d" "Daily review" plain (file+olp+datetree "~/org/journal.org")
+       (file "~/org/templates/daily-review.capture")
+       :clock-in t :clock-resume t :tree-type week
+    )
+    (
+       "w" "Weekly review" entry (file+function "~/org/journal.org" my-weekly-review-function)
+       (file "~/org/templates/weekly-review.capture")
+       :clock-in t :clock-resume t :prepend t
+    )
+  )
+)
+#+end_src
+
+** Code blocks
+*** Syntax highlighting
+#+begin_src emacs-lisp
+;; Make sure org file code highlights correctly
+(setq org-src-fontify-natively t)
+#+end_src
+
+*** Code block templates
+This is a new thing that is required to be able to use code block templates like ~<s~.
+
+#+begin_src emacs-lisp
+(use-package org-tempo)
+#+end_src
+
+*** Indentation inside the code block
+There is a strange indentation issue that is happening inside the code blocks. If
+you hit an enter the already entered lines will be indented by one level. This
+could be quite annoying. The following config solves it:
+
+#+begin_src emacs-lisp
+(electric-indent-mode -1)
+(setq org-edit-src-content-indentation 0
+      org-src-tab-acts-natively t
+      org-adapt-indentation nil
+      org-src-preserve-indentation t)
+(setq make-backup-files nil)
+#+end_src
+
+*** Enabled languages
+#+begin_src emacs-lisp
+(org-babel-do-load-languages 'org-babel-load-languages
+  '(
+    (shell . t)
+    (python .t)
+  )
+)
+#+end_src
+
+** Agenda
+*** Agenda file config
+#+begin_src emacs-lisp
+(setq org-agenda-files (directory-files-recursively "~/org" "\\.org$"))
+#+end_src
+
+*** Key bindigs
+#+begin_src emacs-lisp
+(evil-leader/set-key-for-mode 'org-mode
+  "m a" 'org-agenda
+)
+#+end_src
+
+*** Agenda key mappings
+#+begin_src emacs-lisp
+(evil-set-initial-state 'org-agenda-mode 'motion)
+(evil-define-key 'motion org-agenda-mode-map
+  (kbd "<tab>") 'org-agenda-goto
+  "j" 'org-agenda-next-line
+  "k" 'org-agenda-previous-line
+  (kbd "RET") 'org-agenda-switch-to
+  (kbd "<tab>") 'org-agenda-goto
+  "t" 'org-agenda-todo
+  "z" 'org-agenda-add-note
+  "L" 'org-agenda-log-mode
+  "f" 'org-agenda-later
+  "b" 'org-agenda-earlier
+)
+#+end_src
+
+** File handling
+*** File type handling
+We are only interested in pdf for now.
+
+#+begin_src emacs-lisp
+(setq org-file-apps
+    '(("\\.pdf\\'" . emacs)
+      (auto-mode . emacs)))
+#+end_src
+
+*** Key bindings
+#+begin_src emacs-lisp
+(evil-leader/set-key-for-mode 'org-mode
+  "m o" 'org-open-at-point
+)
+#+end_src
+
+** Exporting
+*** Key bindigs
+#+begin_src emacs-lisp
+(evil-leader/set-key-for-mode 'org-mode
+  "m e" 'org-export-dispatch
+)
+#+end_src
+
+** Toggles
+*** Key bindigs
+#+begin_src emacs-lisp
+(evil-leader/set-key-for-mode 'org-mode
+  "t i" 'org-toggle-inline-images
+)
+#+end_src
+
+** Habits
+*** Base
+#+begin_src emacs-lisp
+(use-package org-habit)
+(add-to-list 'org-modules 'org-habit t)
+#+end_src
+
+** Plantuml integration
+Based on this link: https://plantuml.com/emacs
+#+begin_src emacs-lisp
+(use-package plantuml-mode
+  :ensure t
+  :defer t)
+;; This was determined by a find, after the plantuml package got installed: find / -name 'plantuml.jar'
+(setq org-plantuml-jar-path (expand-file-name "/usr/share/java/plantuml/plantuml.jar"))
+(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
+#+end_src

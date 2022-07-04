@@ -1,0 +1,42 @@
+name = "Git"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Git global configuration with custom helper commands and aliases.
+"""
+
+[variables]
+PACMAN = [
+  "git",
+  "openssh",
+  "fzy",
+]
+ALIAS = [
+  "gs='git status'",
+]
+
+[[links]]
+name = "Config file"
+path_to_target = "./config/gitconfig"
+path_to_symlink = "$HOME/.config/git/config"
+
+[[links]]
+name = "Git checkown script"
+path_to_target = "./bin/git-checkown.bash"
+path_to_symlink = "$HOME/.local/bin/git-checkown"
+
+[[links]]
+name = "Git delouse script"
+path_to_target = "./bin/git-delouse.bash"
+path_to_symlink = "$HOME/.local/bin/git-delouse"
+
+[[links]]
+name = "Git sha getter script"
+path_to_target = "./bin/git-sha.bash"
+path_to_symlink = "$HOME/.local/bin/git-sha"
+
+[[links]]
+name = "Git is-repo script"
+path_to_target = "./bin/git-is-repo.bash"
+path_to_symlink = "$HOME/.local/bin/git-is-repo"

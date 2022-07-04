@@ -1,0 +1,3 @@
+[submodule "dm"]
+	path = dm
+	url = git@github.com:dotmodules/dm.git

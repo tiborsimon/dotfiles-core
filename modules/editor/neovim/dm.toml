@@ -1,0 +1,31 @@
+name = "Neovim"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Advanced neovim configuration.
+
+After deploying the links you need to execute the <<BOLD>>:PlugInstall<<RESET>> command to install the plugins.
+"""
+
+[variables]
+PACMAN = [
+  "neovim",  # Base package.
+  "fzy", "ripgrep", "fzf",  # Additional required packages..
+]
+ALIAS = [
+  "vim=nvim",
+]
+ENV = [
+  "EDITOR=nvim",
+]
+
+[[links]]
+name = "Initialization file"
+path_to_target = "./config"
+path_to_symlink = "$HOME/.config/nvim"
+
+# [[hooks]]
+# name = "INSTALL"
+# path_to_script = "./bin/hook__install.sh"
+# priority = 0
