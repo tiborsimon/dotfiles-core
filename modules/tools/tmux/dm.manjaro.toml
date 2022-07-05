@@ -9,7 +9,6 @@ Advanced tmux configuration.
 [variables]
 PACMAN = [
   "tmux",
-  "go",  # Needed for the tmux-fastcopy plugin.
 ]
 
 [[links]]

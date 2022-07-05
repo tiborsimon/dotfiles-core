@@ -1,0 +1,24 @@
+name = "Python"
+version = "v1.0.0"
+enabled = false
+
+documentation = """
+Local python configuration.
+"""
+
+[variables]
+PACMAN = [
+  "python",  # Base package.
+  "pyenv",
+]
+ENV = [
+  "VIRTUALFISH_HOME='$HOME/.virtualenvs'"
+]
+POST_CONFIG = [
+  "pyenv init - | source",
+]
+
+[[hooks]]
+name = "INSTALL"
+path_to_script = "./bin/hook__install.sh"
+priority = 0

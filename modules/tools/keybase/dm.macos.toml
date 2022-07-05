@@ -1,0 +1,13 @@
+name = "Keybase"
+version = "v1.0.0"
+enabled = false
+
+documentation = """
+Basic keybase configuration.
+"""
+
+[variables]
+PACMAN = [
+  "keybase",  # Base package.
+  "kbfs", "keybase-gui",  # Additional required packages..
+]

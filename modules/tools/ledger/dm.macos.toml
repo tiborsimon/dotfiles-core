@@ -1,0 +1,42 @@
+name = "Ledger"
+version = "v1.0.0"
+enabled = false
+
+documentation = """
+Ledger accounting package configuration.
+"""
+
+[variables]
+PACMAN = [
+  "ledger",
+]
+
+[[links]]
+name = "Configuration file"
+path_to_target = "./config/ledgerrc"
+path_to_symlink = "$HOME/.config/ledger/ledgerrc"
+
+[[links]]
+name = "Accounts script"
+path_to_target = "./bin/accounts.bash"
+path_to_symlink = "$HOME/.local/bin/my-ledger-accounts"
+
+[[links]]
+name = "Base script"
+path_to_target = "./bin/base.bash"
+path_to_symlink = "$HOME/.local/bin/my-ledger-base"
+
+[[links]]
+name = "Daily summary script"
+path_to_target = "./bin/daily-summary.bash"
+path_to_symlink = "$HOME/.local/bin/my-ledger-daily-summary"
+
+[[links]]
+name = "Weekly summary script"
+path_to_target = "./bin/weekly-summary.bash"
+path_to_symlink = "$HOME/.local/bin/my-ledger-weekly-summary"
+
+[[links]]
+name = "Formatter script"
+path_to_target = "./bin/formatter.py"
+path_to_symlink = "$HOME/.local/bin/my-ledger-formatter"

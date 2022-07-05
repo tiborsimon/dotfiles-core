@@ -1,0 +1,20 @@
+name = "RipGrep"
+version = "v1.0.0"
+enabled = false
+
+documentation = """
+Custom rg configuration.
+"""
+
+[variables]
+PACMAN = [
+  "ripgrep",
+]
+ENV = [
+  "RIPGREP_CONFIG_PATH='$HOME/.config/ripgrep/ripgreprc'",
+]
+
+[[links]]
+name = "Config file"
+path_to_target = "./config/ripgreprc"
+path_to_symlink = "$HOME/.config/ripgrep/ripgreprc"

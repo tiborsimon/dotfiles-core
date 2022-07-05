@@ -10,7 +10,7 @@ RELATIVE_DOTMODULES_REPO_ROOT_PATH := dm
 RELATIVE_MODULES_PATH := ../modules
 
 # Configuration file name.
-CONFIG_FILE_NAME := dm.toml
+CONFIG_FILE_NAME := $(shell cat 'dm.target.conf')
 
 # Python interpreter to use when invoking the starting script.
 PYTHON_INTERPRETER := python3

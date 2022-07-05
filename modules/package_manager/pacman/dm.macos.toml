@@ -1,0 +1,13 @@
+name = "Pacman"
+version = "v1.0.0"
+enabled = false
+
+documentation = """
+Pacman package manager configuration that will collect and install the required
+packages.
+"""
+
+[[hooks]]
+name = "INSTALL_PACKAGES"
+path_to_script = "./bin/hook__install_packages.sh"
+priority = 0
