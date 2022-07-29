@@ -1,0 +1,12 @@
+name = "1Password"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+1Password configuration.
+"""
+
+[variables]
+CASKS = [
+  "1password",
+]

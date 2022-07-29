@@ -1,0 +1,20 @@
+name = "Alacritty"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Custom Alacritty configuration.
+"""
+
+[variables]
+CASKS = [
+  "alacritty",
+]
+ENV = [
+  "TERM=alacritty",
+]
+
+[[links]]
+name = "Config file"
+path_to_target = "./config/alacritty.yml"
+path_to_symlink = "$HOME/.config/alacritty/alacritty.yml"

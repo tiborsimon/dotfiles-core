@@ -1,0 +1,12 @@
+name = "Fonts"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Font configurations.
+"""
+
+[variables]
+CASKS = [
+  "font-hack-nerd-font",
+]

@@ -52,9 +52,6 @@ call plug#begin(stdpath('data') . 'vimplug')
   Plug 'tpope/vim-fugitive', { 'commit': 'f809dde' }
   Plug 'mhinz/vim-signify', { 'commit': '69498f6' }
 
-  " Tmux navigator
-  Plug 'christoomey/vim-tmux-navigator', { 'commit': '9ca5bfe' }
-
 call plug#end()
 
 
@@ -101,9 +98,16 @@ set scrolljump=0
 "==============================================================================
 " COLOR THEME
 "==============================================================================
+" Enable true colors if available
+" NOTE: This is currently disabled, because it looks better without it on
+" macOS. Having it enabled makes the background the same color as the
+" cursorline.
+" set termguicolors
 colorscheme onedark
 " hi Normal guibg=NONE ctermbg=NONE
-
+" Enable italics, Make sure this is immediately after colorscheme
+" https://stackoverflow.com/questions/3494435/vimrc-make-comments-italic
+highlight Comment cterm=italic gui=italic
 
 "==============================================================================
 " KEYBOARD MAPPINGS

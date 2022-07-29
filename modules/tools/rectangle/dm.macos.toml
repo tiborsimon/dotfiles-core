@@ -1,0 +1,12 @@
+name = "Rectangle"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Window manager solution for macOS.
+"""
+
+[variables]
+CASKS = [
+  "rectangle",
+]

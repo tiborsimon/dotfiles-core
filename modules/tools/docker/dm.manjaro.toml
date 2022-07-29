@@ -1,0 +1,12 @@
+name = "Docker"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Basic docker configuration.
+"""
+
+[variables]
+PACMAN = [
+  "docker",
+]

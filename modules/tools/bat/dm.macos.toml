@@ -1,6 +1,6 @@
 name = "Bat"
 version = "v1.0.0"
-enabled = false
+enabled = true
 
 documentation = """
 Cat replacement with coloring.
@@ -11,7 +11,7 @@ man pages are colored in a much cleaner way.
 """
 
 [variables]
-PACMAN = [
+FORMULAE = [
   "bat",
 ]
 ENV = [

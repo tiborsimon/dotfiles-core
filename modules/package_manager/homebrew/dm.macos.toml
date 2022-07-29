@@ -1,0 +1,29 @@
+name = "Homebrew"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Homebrew package manager configuration that will collect and install the required
+packages.
+
+Before you can use the dotmodules based package mangement, you need to prepare <<BOLD>>homebrew<<RESET>> itself with the following steps:
+
+1. Install <<BOLD>>homebrew<<RESET>> with the usual method.
+2. On a fresh system you need to make sure the necessary <<BOLD>>homebrew<<RESET>> directories are in your PATH.
+3. Tap the <<BOLD>>homebrew/cask<<RESET>> repository to be able to install casks.
+"""
+
+[variables]
+POST_CONFIG = [
+  "eval (/opt/homebrew/bin/brew shellenv)",
+]
+
+[[hooks]]
+name = "INSTALL"
+path_to_script = "./bin/hook__install.sh"
+priority = 0
+
+[[hooks]]
+name = "INSTALL_PACKAGES"
+path_to_script = "./bin/hook__install_packages.sh"
+priority = 0

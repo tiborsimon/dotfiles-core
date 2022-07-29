@@ -1,0 +1,15 @@
+name = "Rust"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Local rust configuration.
+"""
+
+[variables]
+FORMULAE = [
+  "rust",
+]
+PATH = [
+  "$HOME/.cargo/bin",
+]

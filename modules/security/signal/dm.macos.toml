@@ -1,0 +1,12 @@
+name = "Signal"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Signal configuration.
+"""
+
+[variables]
+CASKS = [
+  "signal",
+]

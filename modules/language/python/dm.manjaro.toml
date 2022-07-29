@@ -8,7 +8,7 @@ Local python configuration.
 
 [variables]
 PACMAN = [
-  "python",  # Base package.
+  "python",
   "pyenv",
 ]
 ENV = [
@@ -20,5 +20,5 @@ POST_CONFIG = [
 
 [[hooks]]
 name = "INSTALL"
-path_to_script = "./bin/hook__install.sh"
+path_to_script = "./bin/hook__install__manjaro.sh"
 priority = 0

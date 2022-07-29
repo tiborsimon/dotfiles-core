@@ -1,6 +1,6 @@
 name = "Neovim"
 version = "v1.0.0"
-enabled = false
+enabled = true
 
 documentation = """
 Advanced neovim configuration.
@@ -9,7 +9,7 @@ After deploying the links you need to execute the <<BOLD>>:PlugInstall<<RESET>> 
 """
 
 [variables]
-PACMAN = [
+FORMULAE = [
   "neovim",  # Base package.
   "fzy", "ripgrep", "fzf",  # Additional required packages..
 ]

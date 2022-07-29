@@ -2,7 +2,7 @@ Bash Ide
 Bookmarks
 Date & Time
 ESLint
-highliht
+TODO highliht
 Jupyter
 Jupyter Keymap
 Jupiter Notebook Renderers
@@ -16,3 +16,4 @@ Spell Right
 Trailing Spaces
 Vim
 Visual Code IntelliCode
+Material icon theme

@@ -1,14 +1,20 @@
 name = "Fish"
 version = "v1.0.0"
-enabled = false
+enabled = true
 
 documentation = """
 Configuration for the fish shell.
+
+After this module gets installed, you need to do the followings to set it up as the main shell:
+
+1. sudo -c 'echo $(which fish) >> /etc/shells'
+2. chsh -s $(which fish)
 """
 
 [variables]
-PACMAN = [
+FORMULAE = [
   "fish",
+  "coreutils",
 ]
 PATH = [
   "$HOME/.local/bin",

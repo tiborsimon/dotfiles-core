@@ -1,13 +1,13 @@
 name = "Git"
 version = "v1.0.0"
-enabled = false
+enabled = true
 
 documentation = """
 Git global configuration with custom helper commands and aliases.
 """
 
 [variables]
-PACMAN = [
+FORMULAE = [
   "git",
   "openssh",
   "fzy",

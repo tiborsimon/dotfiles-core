@@ -1,0 +1,22 @@
+name = "Keybase"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Basic keybase configuration.
+"""
+
+[variables]
+CASKS = [
+  "keybase",
+]
+
+[[links]]
+name = "Keybase CLI"
+path_to_target = "/Applications/Keybase.app/Contents/SharedSupport/bin/keybase"
+path_to_symlink = "$HOME/.local/bin/keybase"
+
+[[links]]
+name = "Keybase git remote extension"
+path_to_target = "/Applications/Keybase.app/Contents/SharedSupport/bin/git-remote-keybase"
+path_to_symlink = "$HOME/.local/bin/git-remote-keybase"

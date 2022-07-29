@@ -1,0 +1,223 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "terminal.integrated.altClickMovesCursor": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[shellscript]": {
+        "editor.tabSize": 2
+    },
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": false,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-h>"],
+            "after": [
+                "<left>"
+            ]
+        },
+        {
+            "before": ["<C-l>"],
+            "after": [
+                "<right>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "c", "p"],
+            "after": [
+                "\"", "+", "p"
+            ]
+        },
+        {
+            "before": ["<leader>", "m", "m"],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": ["<leader>", "m", "n"],
+            "commands": [
+                "bookmarks.jumpToNext"
+            ]
+        },
+        {
+            "before": ["<leader>", "m", "p"],
+            "commands": [
+                "bookmarks.jumpToPrevious"
+            ]
+        },
+        {
+            "before": ["<leader>", "m", "l"],
+            "commands": [
+                "bookmarks.list"
+            ]
+        },
+        {
+            "before": ["<leader>", "m", "L"],
+            "commands": [
+                "bookmarks.listFromAllFiles"
+            ]
+        },
+        {
+            "before": ["<leader>", "l", "h"],
+            "commands": [
+                "editor.action.showHover",
+            ]
+        },
+        {
+            "before": ["<leader>", "f", "s"],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        },
+        {
+            "before": ["<leader>", "f", "f"],
+            "commands": [
+                "workbench.action.quickOpen",
+            ]
+        },
+        {
+            "before": ["<leader>", "e"],
+            "commands": [
+                "workbench.files.action.focusFilesExplorer",
+            ]
+        },
+        {
+            "before": ["<leader>", "b"],
+            "commands": [
+                "workbench.files.action.focusOpenEditorsView",
+            ]
+        },
+        {
+            "before": ["*"],
+            "commands": [
+                ":let @/='\\<<C-R>=expand(\"<cword>\")<cr>\\>'<cr>:set hls<cr>",
+            ]
+        },
+        {
+            "before": ["<cr>"],
+            "after": [
+                "v", "i", "w", "*", "N",
+            ]
+        },
+        {
+            "before": ["<leader>", "/"],
+            "commands": [":nohl"]
+        },
+        {
+            "before": [";"],
+            "after": [":"]
+        },
+        {
+            "before": [":"],
+            "commands": [
+                "workbench.action.showCommands",
+            ]
+        },
+        {
+            "before": ["<leader>", "j"],
+            "after": ["<leader>", "<leader>", "2", "s"]
+        },
+        {
+            "before": ["<C-h>"],
+            "after": ["<C-w>", "h"]
+        },
+        {
+            "before": ["<C-l>"],
+            "after": ["<C-w>", "l"]
+        },
+        {
+            "before": ["<Leader>", "t", "t"],
+            "commands": [":tabnew"]
+        },
+        {
+            "before": ["<Leader>", "t", "l"],
+            "commands": [":tabnext"]
+        },
+        {
+            "before": ["<Leader>", "t", "h"],
+            "commands": [":tabprev"]
+        },
+        {
+            "before": ["<Leader>", "t", "o"],
+            "commands": [":tabo"]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "c", "c"],
+            "after": [
+                "\"", "+", "y"
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "commands": [
+                "editor.action.moveLinesDownAction"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.moveLinesUpAction"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-t>": false,
+        "<C-k>": false,
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.smoothScrolling": true,
+    "vim.visualstar": true,
+    "vim.easymotionKeys": "asdfghjkl;",
+    "vim.showmodename": false,
+    "shellcheck.customArgs": [
+        "-x"
+    ],
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "dateTime.padDays": true,
+    "dateTime.showMonth": true,
+    "dateTime.showDayOfMonth": true,
+    "dateTime.showDayOfWeek": true,
+    "window.menuBarVisibility": "toggle",
+    "files.autoSave": "afterDelay",
+    "telemetry.telemetryLevel": "off",
+    "terminal.integrated.scrollback": 100000,
+    "editor.minimap.enabled": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.cursorSmoothCaretAnimation": true,
+    "vim.smartRelativeLine": true,
+    "workbench.colorTheme": "Solarized Light",
+    "python.venvPath": "$VIRTUALFISH_HOME"
+}

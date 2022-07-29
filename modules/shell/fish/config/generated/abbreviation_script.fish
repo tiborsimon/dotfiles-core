@@ -1,4 +1,4 @@
-# Abbreviation script generated at Sun Jun 26 09:41:23 PM CEST 2022
+# Abbreviation script generated at Wed Jul  6 22:34:03 CEST 2022
 
 # Collected abbreviations:
 abbr --add 'dot' 'cd ~/.dotmodules'

@@ -1,13 +1,13 @@
 name = "Ledger"
 version = "v1.0.0"
-enabled = false
+enabled = true
 
 documentation = """
 Ledger accounting package configuration.
 """
 
 [variables]
-PACMAN = [
+FORMULAE = [
   "ledger",
 ]
 

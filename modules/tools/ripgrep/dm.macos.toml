@@ -1,13 +1,13 @@
 name = "RipGrep"
 version = "v1.0.0"
-enabled = false
+enabled = true
 
 documentation = """
 Custom rg configuration.
 """
 
 [variables]
-PACMAN = [
+FORMULAE = [
   "ripgrep",
 ]
 ENV = [

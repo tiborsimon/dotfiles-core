@@ -5,7 +5,7 @@ dm__logger__separator
 
 dm__logger__info 'Installing pipx..'
 dm__logger__separator
-dm__execute python -m pip install --user pipx
+dm__execute python3 -m pip install --user pipx
 dm__logger__separator
 
 dm__logger__info 'Installing and configuring virtualfish..'

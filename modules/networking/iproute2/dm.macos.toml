@@ -1,0 +1,12 @@
+name = "IProute2"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+IPRoute2 configuration.
+"""
+
+[variables]
+FORMULAE = [
+  "iproute2mac",
+]

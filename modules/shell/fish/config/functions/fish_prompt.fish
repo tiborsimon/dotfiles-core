@@ -13,7 +13,9 @@ function fish_prompt --description 'Write out the prompt'
     end
 
     if jobs --query
-      set --local background_job_count (jobs --pid | wc --lines)
+      # Some old BSD implementation of wc pads the output with spaces, hence
+      # the additional xargs call..
+      set --local background_job_count (jobs --pid | wc -l | xargs)
       set_color --bold yellow
       echo -n "[$background_job_count] "
       set_color normal

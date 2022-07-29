@@ -1,0 +1,12 @@
+name = "Wireshark"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Wireshark configuration.
+"""
+
+[variables]
+CASKS = [
+  "wireshark",
+]

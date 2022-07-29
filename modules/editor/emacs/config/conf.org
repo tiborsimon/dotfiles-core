@@ -93,8 +93,8 @@ default. The following settings solves this issue:
 ** Font
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
-                    :family "Source Code Pro"
-                    :height 100
+                    :family "Hack Nerd Font Mono"
+                    :height 105
                     :weight 'normal
                     :width 'normal)
 #+end_src

@@ -1,0 +1,12 @@
+name = "Viscosity"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Viscosity VPN client configuration.
+"""
+
+[variables]
+CASKS = [
+  "viscosity",
+]
