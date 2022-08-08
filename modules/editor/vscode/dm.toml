@@ -1,0 +1,37 @@
+name = "VSCode"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Custom configuration for VSCode focusing on vim compatibility.
+"""
+
+[variables__macos]
+CASKS = [
+  "visual-studio-code"
+]
+
+[variables__manjaro]
+AUR = [
+  "visual-studio-code-bin"
+]
+
+[[links]]
+name = "Setitngs file"
+path_to_target = "./config_macos/settings.json"
+path_to_symlink = "$HOME/Library/Application Support/Code/User/settings.json"
+
+[[links]]
+name = "Keybindings file"
+path_to_target = "./config_macos/keybindings.json"
+path_to_symlink = "$HOME/Library/Application Support/Code/User/keybindings.json"
+
+[[links]]
+name = "Spelling dictionary file"
+path_to_target = "./config_macos/spellright.dict"
+path_to_symlink = "$HOME/Library/Application Support/Code/User/spellright.dict"
+
+[[hooks]]
+name = "INSTALL"
+path_to_script = "./bin/hook__install__macos.sh"
+priority = 1

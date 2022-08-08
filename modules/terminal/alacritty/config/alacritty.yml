@@ -755,10 +755,17 @@ mouse:
 key_bindings:
   # A workaround to be able to map the option key as meta in other programs.
   # Source: https://github.com/alacritty/alacritty/issues/93#issuecomment-271043197
-  - { key: J,        mods: Alt,     chars: "\x1bj"                       }
-  - { key: K,        mods: Alt,     chars: "\x1bk"                       }
-  - { key: H,        mods: Alt,     chars: "\x1bh"                       }
-  - { key: L,        mods: Alt,     chars: "\x1bl"                       }
+  # For tmux navigation in panes and windows.
+  - { key: J,        mods: Alt,       chars: "\x1bj"                       }
+  - { key: K,        mods: Alt,       chars: "\x1bk"                       }
+  - { key: H,        mods: Alt,       chars: "\x1bh"                       }
+  - { key: L,        mods: Alt,       chars: "\x1bl"                       }
+  # For the tmux-logging plugin.
+  - { key: P,        mods: Alt,       chars: "\x1bp"                       }
+  - { key: P,        mods: Alt|Shift, chars: "\x1bP"                       }
+  - { key: C,        mods: Alt,       chars: "\x1bc"                       }
+  # For the tmux-tpm plugin manager.
+  - { key: U,        mods: Alt,       chars: "\x1bu"                       }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }

@@ -218,6 +218,7 @@
     "workbench.iconTheme": "material-icon-theme",
     "editor.cursorSmoothCaretAnimation": true,
     "vim.smartRelativeLine": true,
-    "workbench.colorTheme": "Solarized Light",
-    "python.venvPath": "$VIRTUALFISH_HOME"
+    "workbench.colorTheme": "One Dark Pro",
+    "python.venvPath": "$VIRTUALFISH_HOME",
+    "terminal.integrated.gpuAcceleration": "on"
 }

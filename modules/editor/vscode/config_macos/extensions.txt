@@ -1,19 +1,19 @@
-Bash Ide
-Bookmarks
-Date & Time
-ESLint
-TODO highliht
-Jupyter
-Jupyter Keymap
-Jupiter Notebook Renderers
-Live Server
-One Dark Pro
-Prettier
-Pylance
-Python
-Shellcheck
-Spell Right
-Trailing Spaces
-Vim
-Visual Code IntelliCode
-Material icon theme
+alefragnani.Bookmarks
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+liviuschera.noctis
+mads-hartmann.bash-ide-vscode
+ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter
+ms-toolsai.jupyter-keymap
+ms-toolsai.jupyter-renderers
+msnilshartmann.blue-light
+PKief.material-icon-theme
+rid9.datetime
+ritwickdey.LiveServer
+shardulm94.trailing-spaces
+timonwong.shellcheck
+VisualStudioExptTeam.vscodeintellicode
+vscodevim.vim
+wayou.vscode-todo-highlight

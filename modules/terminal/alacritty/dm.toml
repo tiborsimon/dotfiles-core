@@ -7,11 +7,18 @@ Custom Alacritty configuration.
 """
 
 [variables]
+ENV = [
+  "TERM=alacritty",
+]
+
+[variables__macos]
 CASKS = [
   "alacritty",
 ]
-ENV = [
-  "TERM=alacritty",
+
+[variables__manjaro]
+PACMAN = [
+  "alacritty",
 ]
 
 [[links]]

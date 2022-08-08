@@ -1,0 +1,12 @@
+name = "VCV Rack"
+version = "v1.0.0"
+enabled = true
+
+documentation = """
+Basic VCV Rack configuration.
+"""
+
+[variables]
+CASKS = [
+  "vcv-rack",
+]

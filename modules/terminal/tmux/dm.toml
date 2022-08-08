@@ -6,7 +6,12 @@ documentation = """
 Advanced tmux configuration.
 """
 
-[variables]
+[variables__macos]
+FORMULAE = [
+  "tmux",
+]
+
+[variables__manjaro]
 PACMAN = [
   "tmux",
 ]
@@ -19,4 +24,4 @@ path_to_symlink = "$HOME/.config/tmux/tmux.conf"
 [[hooks]]
 name = "INSTALL"
 path_to_script = "./bin/hook__install.sh"
-priority = 0
+priority = 1
