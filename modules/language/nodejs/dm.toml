@@ -1,10 +1,13 @@
 name = "NodeJS"
 version = "v1.0.0"
-enabled = false
 
 documentation = """
 NodeJS local configuration.
 """
+
+[enabled]
+macos = false
+manjaro = false
 
 [variables]
 PACMAN = [

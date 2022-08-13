@@ -1,10 +1,13 @@
 name = "Emacs"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Custom <<BOLD>>emacs<<RESET>> configuration mostly focusing on <<BOLD>>org-mode<<RESET>>.
 """
+
+[enabled]
+macos = true
+manjaro = true
 
 [variables]
 ALIAS = [

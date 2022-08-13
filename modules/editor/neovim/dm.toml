@@ -1,12 +1,15 @@
 name = "Neovim"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Advanced neovim configuration.
 
 After deploying the links you need to execute the <<BOLD>>:PlugInstall<<RESET>> command to install the plugins.
 """
+
+[enabled]
+macos = true
+manjaro = true
 
 [variables]
 ENV = [

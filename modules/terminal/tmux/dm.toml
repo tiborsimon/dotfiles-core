@@ -1,10 +1,13 @@
 name = "Tmux"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Advanced tmux configuration.
 """
+
+[enabled]
+macos = true
+manjaro = true
 
 [variables__macos]
 FORMULAE = [
@@ -21,7 +24,7 @@ name = "Config file"
 path_to_target = "./config/tmux.conf"
 path_to_symlink = "$HOME/.config/tmux/tmux.conf"
 
-[[hooks]]
+[[shell_script_hooks]]
 name = "INSTALL"
 path_to_script = "./bin/hook__install.sh"
 priority = 1

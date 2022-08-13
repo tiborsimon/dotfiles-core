@@ -1,13 +1,21 @@
 name = "Ledger"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Ledger accounting package configuration.
 """
 
-[variables]
+[enabled]
+macos = true
+manjaro = true
+
+[variables__macos]
 FORMULAE = [
+  "ledger",
+]
+
+[variables__manjaro]
+PACMAN = [
   "ledger",
 ]
 

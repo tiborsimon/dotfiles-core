@@ -1,10 +1,13 @@
 name = "Fonts"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Font configurations.
 """
+
+[enabled]
+macos = true
+manjaro = false
 
 [variables]
 CASKS = [

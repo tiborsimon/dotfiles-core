@@ -1,10 +1,13 @@
 name = "VSCode"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Custom configuration for VSCode focusing on vim compatibility.
 """
+
+[enabled]
+macos = true
+manjaro = true
 
 [variables__macos]
 CASKS = [
@@ -16,22 +19,37 @@ AUR = [
   "visual-studio-code-bin"
 ]
 
-[[links]]
+[[links__macos]]
 name = "Setitngs file"
 path_to_target = "./config_macos/settings.json"
 path_to_symlink = "$HOME/Library/Application Support/Code/User/settings.json"
 
-[[links]]
+[[links__macos]]
 name = "Keybindings file"
 path_to_target = "./config_macos/keybindings.json"
 path_to_symlink = "$HOME/Library/Application Support/Code/User/keybindings.json"
 
-[[links]]
+[[links__macos]]
 name = "Spelling dictionary file"
 path_to_target = "./config_macos/spellright.dict"
 path_to_symlink = "$HOME/Library/Application Support/Code/User/spellright.dict"
 
-[[hooks]]
+[[links__manjaro]]
+name = "Setitngs file"
+path_to_target = "./config_manjaro/settings.json"
+path_to_symlink = "$HOME/Library/Application Support/Code/User/settings.json"
+
+[[links__manjaro]]
+name = "Keybindings file"
+path_to_target = "./config_manjaro/keybindings.json"
+path_to_symlink = "$HOME/Library/Application Support/Code/User/keybindings.json"
+
+[[links__manjaro]]
+name = "Spelling dictionary file"
+path_to_target = "./config_manjaro/spellright.dict"
+path_to_symlink = "$HOME/Library/Application Support/Code/User/spellright.dict"
+
+[[shell_script_hooks]]
 name = "INSTALL"
 path_to_script = "./bin/hook__install__macos.sh"
 priority = 1

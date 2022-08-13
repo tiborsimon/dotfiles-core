@@ -1,10 +1,14 @@
 name = "Signal"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Signal configuration.
 """
+
+[enabled]
+macos = true
+manjaro = false
+
 
 [variables]
 CASKS = [

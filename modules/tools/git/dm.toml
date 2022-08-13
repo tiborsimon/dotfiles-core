@@ -1,19 +1,31 @@
 name = "Git"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Git global configuration with custom helper commands and aliases.
 """
 
+[enabled]
+macos = true
+manjaro = true
+
 [variables]
+ALIAS = [
+  "gs='git status'",
+]
+
+[variables__macos]
 FORMULAE = [
   "git",
   "openssh",
   "fzy",
 ]
-ALIAS = [
-  "gs='git status'",
+
+[variables__manjaro]
+PACMAN = [
+  "git",
+  "openssh",
+  "fzy",
 ]
 
 [[links]]

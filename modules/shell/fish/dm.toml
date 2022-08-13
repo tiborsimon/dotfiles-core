@@ -1,20 +1,36 @@
 name = "Fish"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Configuration for the fish shell.
+
+After this module gets installed, you need to do the followings to set it up as the main shell:
+
+1. sudo -c 'echo $(which fish) >> /etc/shells'
+2. chsh -s $(which fish)
 """
 
+[enabled]
+macos = true
+manjaro = true
+
 [variables]
-PACMAN = [
-  "fish",
-]
 PATH = [
   "$HOME/.local/bin",
 ]
 ALIAS = [
   "dot='cd ~/.dotmodules'",
+]
+
+[variables__macos]
+FORMULAE = [
+  "fish",
+  "coreutils",
+]
+
+[variables__manjaro]
+PACMAN = [
+  "fish",
 ]
 
 [[links]]
@@ -42,23 +58,22 @@ name = "Functions config directory"
 path_to_target = "./config/functions"
 path_to_symlink = "$HOME/.config/fish/functions"
 
-
-[[hooks]]
+[[shell_script_hooks]]
 name = "GENERATE_ALIAS_SCRIPT"
 path_to_script = "./bin/hook__generate_alias_script.sh"
 priority = 0
 
-[[hooks]]
+[[shell_script_hooks]]
 name = "GENERATE_ENV_SCRIPT"
 path_to_script = "./bin/hook__generate_env_script.sh"
 priority = 0
 
-[[hooks]]
+[[shell_script_hooks]]
 name = "GENERATE_PATH_SCRIPT"
 path_to_script = "./bin/hook__generate_path_script.sh"
 priority = 0
 
-[[hooks]]
+[[shell_script_hooks]]
 name = "GENERATE_POST_CONFIG_SCRIPT"
 path_to_script = "./bin/hook__generate_post_config_script.sh"
 priority = 0

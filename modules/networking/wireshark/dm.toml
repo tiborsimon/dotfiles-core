@@ -1,10 +1,13 @@
 name = "Wireshark"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Wireshark configuration.
 """
+
+[enabled]
+macos = true
+manjaro = false
 
 [variables]
 CASKS = [

@@ -1,17 +1,28 @@
 name = "Ranger"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Configuration for the ranger file browser.
 """
 
+[enabled]
+macos = true
+manjaro = true
+
 [variables]
-FORMULAE = [
-  "ranger",  # Base package.
-]
 ALIAS = [
   "r=ranger",
+]
+
+[variables__macos]
+FORMULAE = [
+  "ranger",
+]
+
+[variables__manjaro]
+PACMAN = [
+  "ranger",
+  "python-pillow",  # For the kitty based image previews.
 ]
 
 [[links]]

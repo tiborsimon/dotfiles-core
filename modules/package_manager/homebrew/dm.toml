@@ -1,6 +1,5 @@
 name = "Homebrew"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Homebrew package manager configuration that will collect and install the required
@@ -13,17 +12,21 @@ Before you can use the dotmodules based package mangement, you need to prepare <
 3. Tap the <<BOLD>>homebrew/cask<<RESET>> repository to be able to install casks.
 """
 
+[enabled]
+macos = true
+manjaro = false
+
 [variables]
 POST_CONFIG = [
   "eval (/opt/homebrew/bin/brew shellenv)",
 ]
 
-[[hooks]]
+[[shell_script_hooks]]
 name = "INSTALL"
 path_to_script = "./bin/hook__install.sh"
 priority = 0
 
-[[hooks]]
+[[shell_script_hooks]]
 name = "INSTALL_PACKAGES"
 path_to_script = "./bin/hook__install_packages.sh"
 priority = 0

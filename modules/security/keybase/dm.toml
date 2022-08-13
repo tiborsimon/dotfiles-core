@@ -1,22 +1,31 @@
 name = "Keybase"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Basic keybase configuration.
 """
 
-[variables]
+[enabled]
+macos = true
+manjaro = true
+
+[variables__macos]
 CASKS = [
   "keybase",
 ]
 
-[[links]]
+[variables__manjaro]
+PACMAN = [
+  "keybase",  # Base package.
+  "kbfs", "keybase-gui",  # Additional required packages..
+]
+
+[[links__macos]]
 name = "Keybase CLI"
 path_to_target = "/Applications/Keybase.app/Contents/SharedSupport/bin/keybase"
 path_to_symlink = "$HOME/.local/bin/keybase"
 
-[[links]]
+[[links__macos]]
 name = "Keybase git remote extension"
 path_to_target = "/Applications/Keybase.app/Contents/SharedSupport/bin/git-remote-keybase"
 path_to_symlink = "$HOME/.local/bin/git-remote-keybase"

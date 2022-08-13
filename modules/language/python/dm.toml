@@ -1,16 +1,15 @@
 name = "Python"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Local python configuration.
 """
 
+[enabled]
+macos = true
+manjaro = true
+
 [variables]
-FORMULAE = [
-  "pipx",
-  "pyenv",
-]
 ENV = [
   "VIRTUALFISH_HOME='$HOME/.virtualenvs'",
   "PIPX_DEFAULT_PYTHON='$HOME/.pyenv/shims/python'",
@@ -19,7 +18,19 @@ POST_CONFIG = [
   "pyenv init - | source",
 ]
 
-[[hooks]]
+[variables__macos]
+FORMULAE = [
+  "pipx",
+  "pyenv",
+]
+
+[variables__manjaro]
+PACMAN = [
+  "python",
+  "pyenv",
+]
+
+[[shell_script_hooks]]
 name = "INSTALL"
 path_to_script = "./bin/hook__install__macos.sh"
 priority = 1

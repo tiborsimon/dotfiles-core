@@ -1,12 +1,15 @@
 name = "Keyboard"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Keyboard configurations.
 """
 
-[[hooks]]
+[enabled]
+macos = true
+manjaro = false
+
+[[shell_script_hooks]]
 name = "INSTALL"
 path_to_script = "./bin/hook__install.sh"
 priority = 1

@@ -1,6 +1,5 @@
 name = "Bat"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Cat replacement with coloring.
@@ -10,10 +9,21 @@ LESS related coloring variables. With defining the MANPAGER env variable the
 man pages are colored in a much cleaner way.
 """
 
+[enabled]
+macos = true
+manjaro = true
+
 [variables]
-PACMAN = [
-  "bat",
-]
 ENV = [
   'MANPAGER=sh -c "col -bx | bat -l man -p"'
+]
+
+[variables__macos]
+FORMULAE = [
+  "bat",
+]
+
+[variables__manjaro]
+PACMAN = [
+  "bat",
 ]

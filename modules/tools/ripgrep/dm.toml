@@ -1,17 +1,27 @@
 name = "RipGrep"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Custom rg configuration.
 """
 
+[enabled]
+macos = true
+manjaro = true
+
 [variables]
-PACMAN = [
-  "ripgrep",
-]
 ENV = [
   "RIPGREP_CONFIG_PATH='$HOME/.config/ripgrep/ripgreprc'",
+]
+
+[variables__macos]
+FORMULAE = [
+  "ripgrep",
+]
+
+[variables__manjaro]
+PACMAN = [
+  "ripgrep",
 ]
 
 [[links]]

@@ -1,10 +1,13 @@
 name = "VCV Rack"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Basic VCV Rack configuration.
 """
+
+[enabled]
+macos = true
+manjaro = false
 
 [variables]
 CASKS = [

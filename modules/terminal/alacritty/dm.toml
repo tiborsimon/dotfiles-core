@@ -1,10 +1,13 @@
 name = "Alacritty"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Custom Alacritty configuration.
 """
+
+[enabled]
+macos = true
+manjaro = true
 
 [variables]
 ENV = [

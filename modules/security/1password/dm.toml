@@ -1,10 +1,13 @@
 name = "1Password"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 1Password configuration.
 """
+
+[enabled]
+macos = true
+manjaro = false
 
 [variables]
 CASKS = [

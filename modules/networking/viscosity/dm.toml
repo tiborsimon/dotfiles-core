@@ -1,10 +1,13 @@
 name = "Viscosity"
 version = "v1.0.0"
-enabled = true
 
 documentation = """
 Viscosity VPN client configuration.
 """
+
+[enabled]
+macos = true
+manjaro = false
 
 [variables]
 CASKS = [
