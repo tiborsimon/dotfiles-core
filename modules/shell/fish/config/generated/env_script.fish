@@ -1,4 +1,4 @@
-# Env script generated at Thu Jul 14 20:06:45 CEST 2022
+# Env script generated at Sun Aug 21 21:19:37 CEST 2022
 
 # Collected environment variables:
 set --global --export 'EDITOR' 'nvim'

@@ -30,3 +30,13 @@ priority = 0
 name = "INSTALL_PACKAGES"
 path_to_script = "./bin/hook__install_packages.sh"
 priority = 0
+
+[[variable_status_hooks]]
+variable_name = "FORMULAE"
+path_to_script = "./bin/hook__variable_status.sh"
+prepare_step_necessary = true
+
+[[variable_status_hooks]]
+variable_name = "CASKS"
+path_to_script = "./bin/hook__variable_status.sh"
+prepare_step_necessary = true

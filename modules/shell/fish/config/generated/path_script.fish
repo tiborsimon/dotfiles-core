@@ -1,4 +1,4 @@
-# Path script generated at Tue Jul 19 20:22:01 CEST 2022
+# Path script generated at Sun Aug 21 21:05:43 CEST 2022
 
 # Deleting the global path prefix variable..
 set --erase --global fish_user_paths

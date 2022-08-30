@@ -1,0 +1,15 @@
+name = "Shellcheck"
+version = "v1.0.0"
+
+documentation = """
+Shellcheck configuration.
+"""
+
+[enabled]
+macos = true
+manjaro = false
+
+[variables__macos]
+FORMULAE = [
+  "shellcheck",
+]

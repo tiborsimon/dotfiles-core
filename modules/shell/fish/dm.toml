@@ -44,7 +44,7 @@ path_to_target = "./config/generated"
 path_to_symlink = "$HOME/.config/fish/generated"
 
 [[links]]
-name = "Completions config directory"
+name = "Completions directory"
 path_to_target = "./config/completions"
 path_to_symlink = "$HOME/.config/fish/completions"
 
@@ -54,7 +54,7 @@ path_to_target = "./config/conf.d"
 path_to_symlink = "$HOME/.config/fish/conf.d"
 
 [[links]]
-name = "Functions config directory"
+name = "Functions directory"
 path_to_target = "./config/functions"
 path_to_symlink = "$HOME/.config/fish/functions"
 
@@ -77,3 +77,23 @@ priority = 0
 name = "GENERATE_POST_CONFIG_SCRIPT"
 path_to_script = "./bin/hook__generate_post_config_script.sh"
 priority = 0
+
+[[variable_status_hooks]]
+variable_name = "ALIAS"
+path_to_script = "./bin/hook__variable_status.sh"
+prepare_step_necessary = false
+
+[[variable_status_hooks]]
+variable_name = "ENV"
+path_to_script = "./bin/hook__variable_status.sh"
+prepare_step_necessary = false
+
+[[variable_status_hooks]]
+variable_name = "PATH"
+path_to_script = "./bin/hook__variable_status.sh"
+prepare_step_necessary = false
+
+[[variable_status_hooks]]
+variable_name = "POST_CONFIG"
+path_to_script = "./bin/hook__variable_status.sh"
+prepare_step_necessary = false
