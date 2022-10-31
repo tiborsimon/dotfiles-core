@@ -94,6 +94,27 @@ set scrolloff=3
 set sidescrolloff=5
 set scrolljump=0
 
+" Performance improvments
+" if has("mac")
+"   set nocursorline
+
+"   if exists("+relativenumber")
+"     set norelativenumber
+"   endif
+
+"   set foldlevel=0
+"   set foldmethod=manual
+" endif
+" disable auto matching parens
+" let g:loaded_matchparen=1
+" " don't render special chars (tabs, trails, ...)
+" set nolist
+" " if number column doesn't make sense to you, just don't render it
+" set nonumber
+" " lazy drawing
+" set lazyredraw
+" set ttyfast
+
 
 "==============================================================================
 " COLOR THEME

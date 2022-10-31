@@ -20,12 +20,12 @@ PACMAN = [
   "kbfs", "keybase-gui",  # Additional required packages..
 ]
 
-[[links__macos]]
+[[link__macos]]
 name = "Keybase CLI"
 path_to_target = "/Applications/Keybase.app/Contents/SharedSupport/bin/keybase"
 path_to_symlink = "$HOME/.local/bin/keybase"
 
-[[links__macos]]
+[[link__macos]]
 name = "Keybase git remote extension"
 path_to_target = "/Applications/Keybase.app/Contents/SharedSupport/bin/git-remote-keybase"
 path_to_symlink = "$HOME/.local/bin/git-remote-keybase"

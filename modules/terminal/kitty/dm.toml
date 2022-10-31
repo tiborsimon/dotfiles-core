@@ -14,12 +14,12 @@ PACMAN = [
   "kitty",
 ]
 
-[[links]]
+[[link]]
 name = "Config file"
 path_to_target = "./config/kitty.conf"
 path_to_symlink = "$HOME/.config/kitty/kitty.conf"
 
-[[links]]
+[[link]]
 name = "Current theme file"
 path_to_target = "./config/themes/japanesque.conf"
 path_to_symlink = "$HOME/.config/kitty/theme.conf"

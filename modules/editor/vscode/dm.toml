@@ -19,37 +19,37 @@ AUR = [
   "visual-studio-code-bin"
 ]
 
-[[links__macos]]
+[[link__macos]]
 name = "Setitngs file"
 path_to_target = "./config_macos/settings.json"
 path_to_symlink = "$HOME/Library/Application Support/Code/User/settings.json"
 
-[[links__macos]]
+[[link__macos]]
 name = "Keybindings file"
 path_to_target = "./config_macos/keybindings.json"
 path_to_symlink = "$HOME/Library/Application Support/Code/User/keybindings.json"
 
-[[links__macos]]
+[[link__macos]]
 name = "Spelling dictionary file"
 path_to_target = "./config_macos/spellright.dict"
 path_to_symlink = "$HOME/Library/Application Support/Code/User/spellright.dict"
 
-[[links__manjaro]]
+[[link__manjaro]]
 name = "Setitngs file"
 path_to_target = "./config_manjaro/settings.json"
 path_to_symlink = "$HOME/Library/Application Support/Code/User/settings.json"
 
-[[links__manjaro]]
+[[link__manjaro]]
 name = "Keybindings file"
 path_to_target = "./config_manjaro/keybindings.json"
 path_to_symlink = "$HOME/Library/Application Support/Code/User/keybindings.json"
 
-[[links__manjaro]]
+[[link__manjaro]]
 name = "Spelling dictionary file"
 path_to_target = "./config_manjaro/spellright.dict"
 path_to_symlink = "$HOME/Library/Application Support/Code/User/spellright.dict"
 
-[[shell_script_hooks]]
+[[shell_script_hook]]
 name = "INSTALL"
 path_to_script = "./bin/hook__install__macos.sh"
 priority = 1

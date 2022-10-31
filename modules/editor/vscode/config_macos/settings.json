@@ -218,7 +218,16 @@
     "workbench.iconTheme": "material-icon-theme",
     "editor.cursorSmoothCaretAnimation": true,
     "vim.smartRelativeLine": true,
-    "workbench.colorTheme": "Noctis",
+    "workbench.colorTheme": "Noctis Sereno",
     "python.venvPath": "$VIRTUALFISH_HOME",
-    "terminal.integrated.gpuAcceleration": "on"
+    "terminal.integrated.gpuAcceleration": "on",
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.useInlineCompletions": true,
+    "emmet.includeLanguages": {
+        "html": "html"
+    },
+    "emmet.triggerExpansionOnTab": true
 }

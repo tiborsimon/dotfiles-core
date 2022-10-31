@@ -41,7 +41,12 @@ fi
 
 if [ -f "$VARIABLE_STATUS_CACHE_FILE" ]
 then
-  grep "$variable_value" "$VARIABLE_STATUS_CACHE_FILE" | cut -d ' ' -f 2
+  result="$(grep -E "${variable_value}\s" "$VARIABLE_STATUS_CACHE_FILE")"
+  if [ "$?" -ne 0 ]
+  then
+    exit 1
+  fi
+  echo "$result" | cut -d ' ' -f 2
 else
   echo "Cache file is missing: '${VARIABLE_STATUS_CACHE_FILE}'"
   exit 1

@@ -28,27 +28,27 @@ PACMAN = [
   "fzy",
 ]
 
-[[links]]
+[[link]]
 name = "Config file"
 path_to_target = "./config/gitconfig"
 path_to_symlink = "$HOME/.config/git/config"
 
-[[links]]
+[[link]]
 name = "Git checkown script"
 path_to_target = "./bin/git-checkown.bash"
 path_to_symlink = "$HOME/.local/bin/git-checkown"
 
-[[links]]
+[[link]]
 name = "Git delouse script"
 path_to_target = "./bin/git-delouse.bash"
 path_to_symlink = "$HOME/.local/bin/git-delouse"
 
-[[links]]
+[[link]]
 name = "Git sha getter script"
 path_to_target = "./bin/git-sha.bash"
 path_to_symlink = "$HOME/.local/bin/git-sha"
 
-[[links]]
+[[link]]
 name = "Git is-repo script"
 path_to_target = "./bin/git-is-repo.bash"
 path_to_symlink = "$HOME/.local/bin/git-is-repo"

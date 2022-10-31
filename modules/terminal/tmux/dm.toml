@@ -19,12 +19,12 @@ PACMAN = [
   "tmux",
 ]
 
-[[links]]
+[[link]]
 name = "Config file"
 path_to_target = "./config/tmux.conf"
 path_to_symlink = "$HOME/.config/tmux/tmux.conf"
 
-[[shell_script_hooks]]
+[[shell_script_hook]]
 name = "INSTALL"
 path_to_script = "./bin/hook__install.sh"
 priority = 1

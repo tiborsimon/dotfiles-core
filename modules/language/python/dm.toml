@@ -30,7 +30,7 @@ PACMAN = [
   "pyenv",
 ]
 
-[[shell_script_hooks]]
+[[shell_script_hook]]
 name = "INSTALL"
 path_to_script = "./bin/hook__install__macos.sh"
 priority = 1

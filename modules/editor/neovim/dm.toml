@@ -18,8 +18,12 @@ ENV = [
 
 [variables__macos]
 FORMULAE = [
-  "neovim",  # Base package.
-  "fzy", "ripgrep", "fzf",  # Additional required packages..
+  "neovim",
+  "fzy", "fzf",  # Fuzzy finder tools.
+  "ripgrep",  # Fast alternative to grep, optinal dependency for telescope
+  "fd", # Fast alternative to find, optional dependency for telescope
+  "lua-language-server",
+  "tree-sitter",
 ]
 ALIAS = [
   "vim=nvim",
@@ -34,12 +38,12 @@ ALIAS = [
   "vim=nvim",
 ]
 
-[[links]]
+[[link]]
 name = "Initialization file"
 path_to_target = "./config"
 path_to_symlink = "$HOME/.config/nvim"
 
-# [[hooks]]
+# [[hook]]
 # name = "INSTALL"
 # path_to_script = "./bin/hook__install.sh"
 # priority = 0

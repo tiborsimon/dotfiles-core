@@ -25,7 +25,7 @@ PACMAN = [
   "python-pillow",  # For the kitty based image previews.
 ]
 
-[[links]]
+[[link]]
 name = "Configuration directory"
 path_to_target = "./config"
 path_to_symlink = "$HOME/.config/ranger"

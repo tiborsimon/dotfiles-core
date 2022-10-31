@@ -10,7 +10,7 @@ packages.
 macos = false
 manjaro = true
 
-[[shell_script_hooks]]
+[[shell_script_hook]]
 name = "INSTALL_PACKAGES"
 path_to_script = "./bin/hook__install_packages.sh"
 priority = 0

@@ -29,12 +29,12 @@ AUR = [
   "bdf-unifont",  # Custom font.
 ]
 
-[[links]]
+[[link]]
 name = "Initialization file"
 path_to_target = "./config/init.el"
 path_to_symlink = "$HOME/.config/emacs/init.el"
 
-[[links]]
+[[link]]
 name = "Custom org based configuration"
 path_to_target = "./config/conf.org"
 path_to_symlink = "$HOME/.config/emacs/conf.org"

@@ -46,11 +46,11 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0
-    y: 0
+    x: 4
+    y: 4
 
   # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -61,13 +61,13 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  #decorations: full
+  decorations: buttonless
 
   # Background opacity
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  #opacity: 1.0
+  opacity: 1.0
 
   # Startup Mode (changes require restart)
   #
@@ -190,33 +190,66 @@ font:
 
 
 # Colors (One Dark)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x1e2127'
+#     foreground: '0xabb2bf'
+# 
+#   # Normal colors
+#   normal:
+#     black:   '0x1e2127'
+#     red:     '0xe06c75'
+#     green:   '0x98c379'
+#     yellow:  '0xd19a66'
+#     blue:    '0x61afef'
+#     magenta: '0xc678dd'
+#     cyan:    '0x56b6c2'
+#     white:   '0xabb2bf'
+# 
+#   # Bright colors
+#   bright:
+#     black:   '0x5c6370'
+#     red:     '0xe06c75'
+#     green:   '0x98c379'
+#     yellow:  '0xd19a66'
+#     blue:    '0x61afef'
+#     magenta: '0xc678dd'
+#     cyan:    '0x56b6c2'
+#     white:   '0xffffff'
+
+# TokyoNight Alacritty Colors
 colors:
   # Default colors
   primary:
-    background: '0x1e2127'
-    foreground: '0xabb2bf'
+    background: '0x222436'
+    foreground: '0xc8d3f5'
 
   # Normal colors
   normal:
-    black:   '0x1e2127'
-    red:     '0xe06c75'
-    green:   '0x98c379'
-    yellow:  '0xd19a66'
-    blue:    '0x61afef'
-    magenta: '0xc678dd'
-    cyan:    '0x56b6c2'
-    white:   '0xabb2bf'
+    black:   '0x1b1d2b'
+    red:     '0xff757f'
+    green:   '0xc3e88d'
+    yellow:  '0xffc777'
+    blue:    '0x82aaff'
+    magenta: '0xc099ff'
+    cyan:    '0x86e1fc'
+    white:   '0x828bb8'
 
   # Bright colors
   bright:
-    black:   '0x5c6370'
-    red:     '0xe06c75'
-    green:   '0x98c379'
-    yellow:  '0xd19a66'
-    blue:    '0x61afef'
-    magenta: '0xc678dd'
-    cyan:    '0x56b6c2'
-    white:   '0xffffff'
+    black:   '0x444a73'
+    red:     '0xff757f'
+    green:   '0xc3e88d'
+    yellow:  '0xffc777'
+    blue:    '0x82aaff'
+    magenta: '0xc099ff'
+    cyan:    '0x86e1fc'
+    white:   '0xc8d3f5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff966c' }
+    - { index: 17, color: '0xc53b53' }
 
 
 # Colors (Tomorrow Night)
@@ -791,12 +824,26 @@ key_bindings:
   - { key: K,        mods: Alt,       chars: "\x1bk"                       }
   - { key: H,        mods: Alt,       chars: "\x1bh"                       }
   - { key: L,        mods: Alt,       chars: "\x1bl"                       }
+
   # For the tmux-logging plugin.
   - { key: P,        mods: Alt,       chars: "\x1bp"                       }
   - { key: P,        mods: Alt|Shift, chars: "\x1bP"                       }
   - { key: C,        mods: Alt,       chars: "\x1bc"                       }
+
   # For the tmux-tpm plugin manager.
   - { key: U,        mods: Alt,       chars: "\x1bu"                       }
+
+  # For the ranger to be able to switch tabs.
+  - { key: Key1,     mods: Alt,       chars: "\x1b1"                       }
+  - { key: Key2,     mods: Alt,       chars: "\x1b2"                       }
+  - { key: Key3,     mods: Alt,       chars: "\x1b3"                       }
+  - { key: Key4,     mods: Alt,       chars: "\x1b4"                       }
+  - { key: Key5,     mods: Alt,       chars: "\x1b5"                       }
+  - { key: Key6,     mods: Alt,       chars: "\x1b6"                       }
+  - { key: Key7,     mods: Alt,       chars: "\x1b7"                       }
+  - { key: Key8,     mods: Alt,       chars: "\x1b8"                       }
+  - { key: Key9,     mods: Alt,       chars: "\x1b9"                       }
+
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
