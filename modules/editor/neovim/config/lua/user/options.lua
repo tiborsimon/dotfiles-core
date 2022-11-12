@@ -1,7 +1,7 @@
 local options = {
   -- Encodings
   fileencoding = "utf-8", -- the encoding written to a file
-  
+
   -- Backup management
   backup = false,         -- do not backup
   writebackup = false,    -- do not write a backup file
@@ -9,7 +9,7 @@ local options = {
   undofile = true,        -- enable persistent undo
 
   -- Mouse integration
-  mouse = "a",            -- allow the mouse to be used in neovim
+  mouse = "n",            -- mouse is allowed in normal mode, see keymaps.lua file for more
 
   -- Clipboard handling
   clipboard = "",         -- don't access the system clipboard directly, we will access it through the registers
@@ -35,7 +35,7 @@ local options = {
     "menuone",
     "noselect",
     "noinsert",
-  },                          
+  },
 
   -- Search related options
   hlsearch = true,        -- highlight all matches on previous search pattern
@@ -52,6 +52,7 @@ local options = {
   tabstop = 2,            -- insert 2 spaces for a tab
   scrolloff = 8,          -- minimal number of screen lines to keep above and below the cursor
   sidescrolloff = 8,      -- minimal number of screen columns either side of cursor if wrap is `false`
+  textwidth = 90,         -- 
 }
 
 vim.opt.shortmess:append "c"
