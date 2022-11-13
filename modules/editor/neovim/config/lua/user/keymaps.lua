@@ -15,6 +15,7 @@ vim.g.maplocalleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+--   2009-10-26
 
 
 -- NORMAL ---------------------------------------------------------------------
@@ -37,14 +38,16 @@ keymap("n", "<S-Right>", ":vertical resize +1<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap('n', '[b', ":bprevious<CR>", opts)
+keymap('n', ']b', ":bnext<CR>", opts)
 
 -- Navigate tabs
 keymap("n", "<Tab>", "gt", opts)
 keymap("n", "<S-Tab>", "gT", opts)
 
 -- Increment/decrement
-keymap('n', '+', '<C-a>', opts)
-keymap('n', '-', '<C-x>', opts)
+keymap('n', '-', '<C-a>', opts)
+keymap('n', '+', '<C-x>', opts)
 
 -- Navigate through wrapped long lines more intuitively.
 keymap('n', 'j', 'gj', opts)
@@ -65,7 +68,6 @@ keymap('n', 'gp', ":lua require('gitsigns').prev_hunk()<cr>", opts)
 keymap('n', '<LeftMouse>', "<nop>", opts)
 keymap('n', '<RightMouse>', "<nop>", opts)
 
-
 -- INSERT ---------------------------------------------------------------------
 
 -- Motion in insert mode
@@ -73,7 +75,6 @@ keymap('i', '<C-h>', '<left>', opts)
 keymap('i', '<C-l>', '<right>', opts)
 keymap('i', '<C-j>', '<down>', opts)
 keymap('i', '<C-k>', '<up>', opts)
-
 
 -- VISUAL ---------------------------------------------------------------------
 
@@ -89,8 +90,7 @@ keymap("v", "J", ":move .+1<CR>==", opts)
 keymap("v", "K", ":move .-2<CR>==", opts)
 
 -- Preserve register value on paste
-keymap("v", "p", '"_dP', opts)
-
+-- keymap("v", "p", '"_dP', opts)
 
 -- VISUAL BLOCK ---------------------------------------------------------------
 
@@ -109,7 +109,6 @@ keymap('c', '<C-l>', '<right>', { noremap = false })
 keymap('c', '<C-j>', '<down>', { noremap = false })
 keymap('c', '<C-k>', '<up>', { noremap = false })
 
-
 -- TERMINAL -------------------------------------------------------------------
 
 -- Better terminal navigation
@@ -118,10 +117,9 @@ keymap('c', '<C-k>', '<up>', { noremap = false })
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
-
 -------------------------------------------------------------------------------
 
--- LEADER BASED MAPPINGS ------------------------------------------------------
+-- LEADER KEY BASED MAPPINGS --------------------------------------------------
 
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
@@ -150,6 +148,7 @@ which_key.register(
       f = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Find Files" },
       b = { "<cmd>Telescope file_browser<cr>", "Browse Files" },
       s = { "<cmd>w!<CR>", "Save File" },
+      p = { "<cmd>echo expand('%')<cr>", "Print File Path" },
     },
 
     b = {
@@ -168,6 +167,11 @@ which_key.register(
       name = "Clipboard",
       c = { 'V"+y', "Copy line to system clipboard" },
       p = { '"+p', "Paste from system clipboard" },
+      f = {
+        name = "File Path",
+        r = { "<cmd>let @+ = expand('%')<cr>", "Copy Relative Path" },
+        a = { "<cmd>let @+ = expand('%:p')<cr>", "Copy Absolute Path" },
+      },
     },
 
     p = {

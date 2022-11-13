@@ -18,7 +18,7 @@ local filename = {
 	"filename",
 	filename_status = true,
 	newfile_status = true,
-	path = 1,
+	path = 0,
 }
 
 local filetype = {

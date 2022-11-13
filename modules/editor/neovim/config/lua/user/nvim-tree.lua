@@ -3,13 +3,6 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
-
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
 nvim_tree.setup {
   update_focused_file = {
     enable = true,
@@ -57,9 +50,9 @@ nvim_tree.setup {
     width = 30,
     side = "left",
     mappings = {
+      custom_only = false,
       list = {
         { key = { "<CR>", "o" }, action = "edit" },
-        { key = "h", action = "close_node" },
         { key = "v", action = "vsplit" },
         { key = "s", action = "split" },
         { key = "t", action = "tabnew" },

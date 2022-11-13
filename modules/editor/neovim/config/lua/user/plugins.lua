@@ -39,112 +39,186 @@ packer.init {
   },
 }
 
--- Install your plugins here
 return packer.startup(function(use)
-  use { "wbthomason/packer.nvim" } -- Have packer manage itself
 
+  -- PACKER -------------------------------------------------------------------
 
-  -- My plugins here
-  use { "nvim-lua/plenary.nvim" } -- Useful lua functions used ny lots of plugins
-  use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
+  use {
+    -- https://github.com/wbthomason/packer.nvim
+    "wbthomason/packer.nvim",
+  }
+
+  -- VARIOUS PLUGINS ----------------------------------------------------------
+
+  use {
+    -- https://github.com/nvim-lua/plenary.nvim
+    "nvim-lua/plenary.nvim",
+  }
+  use {
+    -- https://github.com/windwp/nvim-autopairs
+    "windwp/nvim-autopairs",
+  }
 	use {
-    -- Delete buffers and close files - https://github.com/moll/vim-bbye
+    -- https://github.com/moll/vim-bbye
     "moll/vim-bbye",
   }
-  use { "akinsho/toggleterm.nvim" }
   use {
-    -- The superior project management for neovim - https://github.com/ahmedkhalf/project.nvim
+    -- https://github.com/akinsho/toggleterm.nvim
+    "akinsho/toggleterm.nvim",
+  }
+  use {
+    -- https://github.com/ahmedkhalf/project.nvim
     "ahmedkhalf/project.nvim",
   }
-  -- use { "lewis6991/impatient.nvim" }
-  use { "lukas-reineke/indent-blankline.nvim" }
-
-  -- Comment handling
+  -- use {
+  --   -- https://github.com/lewis6991/impatient.nvim
+  --   "lewis6991/impatient.nvim",
+  -- }
   use {
-    -- Smart and powerful comment plugin for neovim - https://github.com/numToStr/Comment.nvim
+    -- https://github.com/kylechui/nvim-surround
+    "kylechui/nvim-surround",
+  }
+  use {
+    -- https://github.com/tpope/vim-speeddating
+    "tpope/vim-speeddating",
+  }
+  use {
+    -- https://github.com/tpope/vim-repeat
+    "tpope/vim-repeat",
+  }
+
+  -- COMMENT HANDLING ---------------------------------------------------------
+
+  use {
+    -- https://github.com/numToStr/Comment.nvim
     "numToStr/Comment.nvim",
   }
   use {
-    -- Neovim treesitter plugin for settings the commentstring based on the cursor location - https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+    -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
     "JoosepAlviste/nvim-ts-context-commentstring",
   }
 
+  -- COLORSCHEMES -------------------------------------------------------------
 
-  -- GUI improvements
   use {
-    -- Custom status line - https://github.com/nvim-lualine/lualine.nvim
+    -- https://github.com/folke/tokyonight.nvim
+    "folke/tokyonight.nvim"
+  }
+
+  -- GUI IMPROVEMENTS ---------------------------------------------------------
+
+  use {
+    -- https://github.com/nvim-lualine/lualine.nvim
     "nvim-lualine/lualine.nvim",
   }
   use {
-    -- A snazzy bufferline for Neovim - https://github.com/akinsho/bufferline.nvim
+    -- https://github.com/akinsho/bufferline.nvim
     "akinsho/bufferline.nvim",
   }
   use {
-    -- A lua powered greeter screen - https://github.com/goolord/alpha-nvim
+    -- https://github.com/goolord/alpha-nvim
     "goolord/alpha-nvim",
   }
-  use {
-    "kyazdani42/nvim-web-devicons",
-  }
 	use {
-    -- Key bindings popup window - https://github.com/folke/which-key.nvim
+    -- https://github.com/folke/which-key.nvim
     "folke/which-key.nvim",
   }
   use {
-    "kyazdani42/nvim-tree.lua",
+    -- https://github.com/nvim-tree/nvim-tree.lua
+    "nvim-tree/nvim-tree.lua",
   }
-
-
-  -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  -- use "lunarvim/darkplus.nvim"
-  use { 'folke/tokyonight.nvim' }
-
-
-  -- Cmp plugins
-  use { "hrsh7th/nvim-cmp" } -- The completion plugin
-  use { "hrsh7th/cmp-buffer" } -- buffer completions
-  use { "hrsh7th/cmp-path" } -- path completions
-  use { "hrsh7th/cmp-cmdline" } -- cmdline completions
-  use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
-  use { "hrsh7th/cmp-nvim-lsp" }
-  use { "hrsh7th/cmp-nvim-lua" }
-
-
-  -- Snippets
-  use { "L3MON4D3/LuaSnip" } --snippet engine
-  use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
-
-
-  -- LSP
-  use { "neovim/nvim-lspconfig" } -- enable LSP
-  use { "williamboman/mason.nvim" } -- simple to use language server installer
-  use { "williamboman/mason-lspconfig.nvim" } -- simple to use language server installer
-  use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
-  use { "RRethy/vim-illuminate" }
-  use { 'kkharji/lspsaga.nvim' }
-
-
-  -- Telescope
+  use {
+    -- https://github.com/nvim-tree/nvim-web-devicons
+    "nvim-tree/nvim-web-devicons",
+  }
+  use {
+    -- https://github.com/lukas-reineke/indent-blankline.nvim
+    "lukas-reineke/indent-blankline.nvim",
+  }
 	use {
-    -- Custom pickers - https://github.com/nvim-telescope/telescope.nvim
+    -- https://github.com/nvim-telescope/telescope.nvim
     "nvim-telescope/telescope.nvim",
   }
   use {
-    -- telescope based file browser - https://github.com/nvim-telescope/telescope-file-browser.nvim
+    -- https://github.com/nvim-telescope/telescope-file-browser.nvim
     "nvim-telescope/telescope-file-browser.nvim",
   }
-
-
-	-- Treesitter
 	use {
+    -- https://github.com/lewis6991/gitsigns.nvim
+    "lewis6991/gitsigns.nvim",
+  }
+	use {
+    -- https://github.com/nvim-treesitter/nvim-treesitter
 		"nvim-treesitter/nvim-treesitter",
 	}
 
-	-- Git
-	use {
-    -- Git integration for buffers - https://github.com/lewis6991/gitsigns.nvim
-    "lewis6991/gitsigns.nvim",
+  -- COMPLETION ---------------------------------------------------------------
+
+  use {
+    -- https://github.com/hrsh7th/nvim-cmp
+    "hrsh7th/nvim-cmp",
+  }
+  use {
+    -- https://github.com/hrsh7th/cmp-buffer
+    "hrsh7th/cmp-buffer",
+  }
+  use {
+    -- https://github.com/hrsh7th/cmp-path
+    "hrsh7th/cmp-path",
+  }
+  use {
+    -- https://github.com/hrsh7th/cmp-cmdline
+    "hrsh7th/cmp-cmdline",
+  }
+  use {
+    -- https://github.com/hrsh7th/cmp-nvim-lsp
+    "hrsh7th/cmp-nvim-lsp",
+  }
+  use {
+    -- https://github.com/hrsh7th/cmp-nvim-lua
+    "hrsh7th/cmp-nvim-lua",
+  }
+  use {
+    -- https://github.com/saadparwaiz1/cmp_luasnip
+    "saadparwaiz1/cmp_luasnip",
+  }
+
+  -- SNIPPETS -----------------------------------------------------------------
+
+  use {
+    -- https://github.com/L3MON4D3/LuaSnip
+    "L3MON4D3/LuaSnip",
+  }
+  use {
+    -- https://github.com/rafamadriz/friendly-snippets
+    "rafamadriz/friendly-snippets",
+  }
+
+  -- LSP ----------------------------------------------------------------------
+
+  use {
+    -- https://github.com/neovim/nvim-lspconfig
+    "neovim/nvim-lspconfig",
+  }
+  use {
+    -- https://github.com/williamboman/mason.nvim
+    "williamboman/mason.nvim",
+  }
+  use {
+    -- https://github.com/williamboman/mason-lspconfig.nvim
+    "williamboman/mason-lspconfig.nvim",
+  }
+  use {
+    -- https://github.com/jose-elias-alvarez/null-ls.nvim
+    "jose-elias-alvarez/null-ls.nvim",
+  }
+  use {
+    -- https://github.com/RRethy/vim-illuminate
+    "RRethy/vim-illuminate",
+  }
+  use {
+    -- https://github.com/kkharji/lspsaga.nvim
+    "kkharji/lspsaga.nvim",
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

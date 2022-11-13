@@ -43,7 +43,7 @@ bufferline.setup {
     show_tab_indicators = true,
     persist_buffer_sort = true,
     separator_style = "slant",
-    enforce_regular_tabs = true,
+    enforce_regular_tabs = false,
     always_show_bufferline = true,
   },
 }
