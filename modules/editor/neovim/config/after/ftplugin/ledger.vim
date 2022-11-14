@@ -24,18 +24,10 @@ nnoremap <buffer> <leader>mh Vc<cr><esc>i## <esc>77a=<esc>:r!date '+\%F - \%A'<c
 " TRANSACTION - insert transaction header with the current date.
 nnoremap <buffer> <leader>mt :read!date '+\%F'<cr>A * <esc>A
 " POSTING - Add a transaction then prepare for amount entry.
-nnoremap <buffer> <leader>mp :lua require("custom_pickers").ledger_posting()<cr>
+nnoremap <buffer> <leader>mp :lua require("user/ledger").ledger_posting()<cr>
 " CLOSING POSTING - Add the final closing posting without amount entry.
-nnoremap <buffer> <leader>mc :lua require("custom_pickers").ledger_closing_posting()<cr>
+nnoremap <buffer> <leader>mc :lua require("user/ledger").ledger_closing_posting()<cr>
 
 " Save the position to the 'l' mark, format the entire file then go back to
 " the saved position.
 nnoremap <buffer> <leader>mf :execute "normal! ml:%!my-ledger-formatter\r`l"<cr>
-
-
-"==============================================================================
-" OTHER CONFIG
-"==============================================================================
-
-" Custom ledger file format for speeddating.
-1SpeedDatingFormat %Y-%m-%d - %A

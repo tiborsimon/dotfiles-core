@@ -148,8 +148,23 @@ return packer.startup(function(use)
     "lewis6991/gitsigns.nvim",
   }
 	use {
+    -- https://github.com/karb94/neoscroll.nvim
+		"karb94/neoscroll.nvim",
+	}
+	use {
+    -- https://github.com/petertriho/nvim-scrollbar
+		"petertriho/nvim-scrollbar",
+	}
+
+  -- TREESITTER ---------------------------------------------------------------
+
+	use {
     -- https://github.com/nvim-treesitter/nvim-treesitter
 		"nvim-treesitter/nvim-treesitter",
+	}
+	use {
+    -- https://github.com/p00f/nvim-ts-rainbow
+		"p00f/nvim-ts-rainbow",
 	}
 
   -- COMPLETION ---------------------------------------------------------------
@@ -173,6 +188,10 @@ return packer.startup(function(use)
   use {
     -- https://github.com/hrsh7th/cmp-nvim-lsp
     "hrsh7th/cmp-nvim-lsp",
+  }
+  use {
+    -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
+    "hrsh7th/cmp-nvim-lsp-signature-help",
   }
   use {
     -- https://github.com/hrsh7th/cmp-nvim-lua
@@ -217,9 +236,14 @@ return packer.startup(function(use)
     "RRethy/vim-illuminate",
   }
   use {
-    -- https://github.com/kkharji/lspsaga.nvim
-    "kkharji/lspsaga.nvim",
+    -- https://github.com/glepnir/lspsaga.nvim
+    "glepnir/lspsaga.nvim",
   }
+  use {
+    -- https://github.com/folke/neodev.nvim
+    "folke/neodev.nvim",
+  }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

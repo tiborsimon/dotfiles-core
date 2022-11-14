@@ -1,0 +1,1 @@
+echom "plugin/ledger.vim"

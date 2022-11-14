@@ -8,6 +8,12 @@ local action_layout = require("telescope.actions.layout")
 
 telescope.setup {
   defaults = {
+    -- Available layout strategies: horizontal, vertical, center, cursor, flex,
+    -- bottom_pane
+    layout_strategy = "vertical",
+    layout_config = {
+      scroll_speed = 1,
+    },
 
     -- prompt_prefix = " ",
     selection_caret = " ",
@@ -86,17 +92,71 @@ telescope.setup {
     },
   },
   pickers = {
-    find_files = {
-      theme = "dropdown",
-      preview = false,
-    }
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
+    -- layout_config = {
+    --   scroll_speed = 1,
+    -- },
+    -- find_files = {
+    --   theme = "dropdown",
+    --   preview = false,
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- git_commits = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- git_bcommits = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- git_status = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- diagnostics = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- lsp_document_symbols = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- lsp_dynamic_workspace_symbols = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- lsp_definitions = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- lsp_type_definitions = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- lsp_incoming_calls = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- lsp_outgoing_calls = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
+    -- lsp_references = {
+    --   layout_config = {
+    --     scroll_speed = 1,
+    --   }
+    -- },
   },
   extensions = {
     -- Your extension configuration goes here:

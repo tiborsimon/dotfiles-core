@@ -15,8 +15,6 @@ vim.g.maplocalleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
---   2009-10-26
-
 
 -- NORMAL ---------------------------------------------------------------------
 
@@ -38,43 +36,43 @@ keymap("n", "<S-Right>", ":vertical resize +1<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap('n', '[b', ":bprevious<CR>", opts)
-keymap('n', ']b', ":bnext<CR>", opts)
+keymap("n", "[b", ":bprevious<CR>", opts)
+keymap("n", "]b", ":bnext<CR>", opts)
 
 -- Navigate tabs
 keymap("n", "<Tab>", "gt", opts)
 keymap("n", "<S-Tab>", "gT", opts)
 
 -- Increment/decrement
-keymap('n', '-', '<C-a>', opts)
-keymap('n', '+', '<C-x>', opts)
+keymap("n", "-", "<C-a>", opts)
+keymap("n", "+", "<C-x>", opts)
 
 -- Navigate through wrapped long lines more intuitively.
-keymap('n', 'j', 'gj', opts)
-keymap('n', 'k', 'gk', opts)
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
 
 -- Search for word under cursor
-keymap('n', '<Return>', "*``", opts)
+keymap("n", "<Return>", "*``", opts)
 
 -- Illuminate mappings
-keymap('n', '<C-n>', ":lua require('illuminate').goto_next_reference()<cr>", opts)
-keymap('n', '<C-p>', ":lua require('illuminate').goto_prev_reference()<cr>", opts)
+keymap("n", "<C-n>", ":lua require('illuminate').goto_next_reference()<cr>", opts)
+keymap("n", "<C-p>", ":lua require('illuminate').goto_prev_reference()<cr>", opts)
 
 -- Git hunk navigation
-keymap('n', 'gn', ":lua require('gitsigns').next_hunk()<cr>", opts)
-keymap('n', 'gp', ":lua require('gitsigns').prev_hunk()<cr>", opts)
+keymap("n", "gn", ":lua require('gitsigns').next_hunk()<cr>", opts)
+keymap("n", "gp", ":lua require('gitsigns').prev_hunk()<cr>", opts)
 
 -- Mouse if for scrolling only
-keymap('n', '<LeftMouse>', "<nop>", opts)
-keymap('n', '<RightMouse>', "<nop>", opts)
+keymap("n", "<LeftMouse>", "<nop>", opts)
+keymap("n", "<RightMouse>", "<nop>", opts)
 
 -- INSERT ---------------------------------------------------------------------
 
 -- Motion in insert mode
-keymap('i', '<C-h>', '<left>', opts)
-keymap('i', '<C-l>', '<right>', opts)
-keymap('i', '<C-j>', '<down>', opts)
-keymap('i', '<C-k>', '<up>', opts)
+keymap("i", "<C-h>", "<left>", opts)
+keymap("i", "<C-l>", "<right>", opts)
+keymap("i", "<C-j>", "<down>", opts)
+keymap("i", "<C-k>", "<up>", opts)
 
 -- VISUAL ---------------------------------------------------------------------
 
@@ -101,13 +99,12 @@ keymap("x", ";", ":", { noremap = true })
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
-
 -- COMMAND --------------------------------------------------------------------
 
-keymap('c', '<C-h>', '<left>', { noremap = false })
-keymap('c', '<C-l>', '<right>', { noremap = false })
-keymap('c', '<C-j>', '<down>', { noremap = false })
-keymap('c', '<C-k>', '<up>', { noremap = false })
+keymap("c", "<C-h>", "<left>", { noremap = false })
+keymap("c", "<C-l>", "<right>", { noremap = false })
+keymap("c", "<C-j>", "<down>", { noremap = false })
+keymap("c", "<C-k>", "<up>", { noremap = false })
 
 -- TERMINAL -------------------------------------------------------------------
 
@@ -128,174 +125,206 @@ end
 
 -- NORMAL ---------------------------------------------------------------------
 
-which_key.register(
-  {
-    ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-    ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-    ["r"] = { "<cmd>Telescope resume<cr>", "Resume Last Picker" },
-    ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+local normal_leader_mappings = {
+  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["r"] = { "<cmd>Telescope resume<cr>", "Resume Last Picker" },
+  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 
-    ["/"] = {
-      name = "Search",
-      ["/"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-      l = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
-      n = { "<cmd>lua require('illuminate').goto_next_reference()<cr>", "Next occurence" },
-      p = { "<cmd>lua require('illuminate').goto_prev_reference()<cr>", "Next occurence" },
-    },
+  -- SEARCH -------------------------------------------------------------------
 
+  ["/"] = {
+    name = "Search",
+    ["/"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+    l = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+    n = { "<cmd>lua require('illuminate').goto_next_reference()<cr>", "Next occurence" },
+    p = { "<cmd>lua require('illuminate').goto_prev_reference()<cr>", "Next occurence" },
+  },
+
+  -- FILES --------------------------------------------------------------------
+
+  f = {
+    name = "Files",
     f = {
-      name = "Files",
-      f = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Find Files" },
-      b = { "<cmd>Telescope file_browser<cr>", "Browse Files" },
-      s = { "<cmd>w!<CR>", "Save File" },
-      p = { "<cmd>echo expand('%')<cr>", "Print File Path" },
+      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Find Files",
     },
+    b = { "<cmd>Telescope file_browser<cr>", "Browse Files" },
+    s = { "<cmd>w!<CR>", "Save File" },
+    p = { "<cmd>echo expand('%')<cr>", "Print File Path" },
+  },
 
+  -- BUFFERS ------------------------------------------------------------------
+
+  b = {
+    name = "Buffers",
     b = {
-      name = "Buffers",
-      b = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "List Buffers" },
-      c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "List Buffers",
     },
+    c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  },
 
-    t = {
-      name = "Toggle",
-      w = { "<cmd>:setlocal wrap!<cr>", "Toggle Wrapping" },
-      b = { "<cmd>lua package.loaded.gitsigns.toggle_current_line_blame()<cr>", "Toggle Git Line Blame" },
-    },
+  -- TOGGLE -------------------------------------------------------------------
 
-    c = {
-      name = "Clipboard",
-      c = { 'V"+y', "Copy line to system clipboard" },
-      p = { '"+p', "Paste from system clipboard" },
-      f = {
-        name = "File Path",
-        r = { "<cmd>let @+ = expand('%')<cr>", "Copy Relative Path" },
-        a = { "<cmd>let @+ = expand('%:p')<cr>", "Copy Absolute Path" },
-      },
-    },
+  t = {
+    name = "Toggle",
+    w = { "<cmd>:setlocal wrap!<cr>", "Toggle Wrapping" },
+    b = { "<cmd>lua package.loaded.gitsigns.toggle_current_line_blame()<cr>", "Toggle Git Line Blame" },
+  },
 
-    p = {
-      name = "Packer",
-      S = { "<cmd>PackerStatus<cr>", "Status" },
-      c = { "<cmd>PackerCompile<cr>", "Compile" },
-      i = { "<cmd>PackerInstall<cr>", "Install" },
-      s = { "<cmd>PackerSync<cr>", "Sync" },
-      u = { "<cmd>PackerUpdate<cr>", "Update" },
-    },
+  -- CLIPBOARD ----------------------------------------------------------------
 
-    w = {
-      name = "Window",
-      s = {
-        name = "Split Window",
-        s = { "<cmd>split<cr>", "Horizontal Split" },
-        v = { "<cmd>vsplit<cr>", "Vertical Split" },
-      },
-      c = { "<cmd>close<cr>", "Close Window" },
-      r = { "<C-w>=", "Reset Window Alignment" },
-    },
-
-    T = {
-      name = "Tab",
-      n = { '<cmd>tab split<cr>', "New Tab" },
-      N = { '<cmd>tabedit<cr>', "New Empty Tab" },
-      c = { '<cmd>tabclose<cr>', "Close Tab" },
-    },
-
-    g = {
-      name = "Git",
-      h = {
-        name = "Hunks",
-        -- n = { "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next Hunk" },
-        -- p = { "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Prev Hunk" },
-        p = { "<cmd>lua require('gitsigns').preview_hunk()<cr>", "Preview Hunk" },
-        r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
-        s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage Hunk" },
-        u = { "<cmd>lua require('gitsigns').undo_stage_hunk()<cr>", "Undo Stage Hunk" },
-      },
-      c = {
-        name = "Commits",
-        c = { "<cmd>Telescope git_commits<cr>", "Commits" },
-        b = { "<cmd>Telescope git_bcommits<cr>", "Buffer Commits" },
-      },
-      b = { "<cmd>lua require('gitsigns').blame_line()<cr>", "Blame" },
-      s = { "<cmd>Telescope git_status<cr>", "Git Status" },
-      d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
-      R = { "<cmd>lua require('gitsigns').reset_buffer()<cr>", "Reset Buffer" },
-    },
-
-    l = {
-      name = "LSP",
-      a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
-      h = { "<cmd>Lspsaga hover_doc<cr>", "Hover Doc" },
-      f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
-      r = { "<cmd>Lspsaga rename<cr>", "Rename" },
-      d = {
-        name = "Diagnostics",
-        d = { "<cmd>Lspsaga show_line_diagnostics<cr>", "Show Line Diagnostic" },
-        n = { "<cmd>Lspsaga diagnostic_jump_next<cr>", "Next Diagnostic" },
-        p = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Previous Diagnostic" },
-        b = { "<cmd>Telescope diagnostics bufnr=0<cr>", "List Buffer Diagnostics" },
-        w = { "<cmd>Telescope diagnostics<cr>", "List Workspace Diagnostics" },
-      },
-      s = {
-        name = "Symbols",
-        d = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        w = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
-      },
-      g = {
-        name = "Goto",
-        d = {"<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", "Goto Definition" },
-        t = {"<cmd>lua require('telescope.builtin').lsp_type_definitions()<cr>", "Goto Type Definition" },
-        D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto Declaration" },
-        i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
-        c = {"<cmd>lua require('telescope.builtin').lsp_incoming_calls()<cr>", "Goto Incomming Calls" },
-        C = {"<cmd>lua require('telescope.builtin').lsp_outgoing_calls()<cr>", "Goto Outgoing Calls" },
-        r = {"<cmd>lua require('telescope.builtin').lsp_references()<cr>", "Goto References" },
-      },
-      ["?"] = {
-        name = "System Info",
-        i = { "<cmd>LspInfo<cr>", "Info" },
-        I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-      },
-    },
-
-    s = {
-      name = "Search",
-      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-      c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-      h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-      M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-      R = { "<cmd>Telescope registers<cr>", "Registers" },
-      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      C = { "<cmd>Telescope commands<cr>", "Commands" },
+  c = {
+    name = "Clipboard",
+    c = { 'V"+y', "Copy line to system clipboard" },
+    p = { '"+p', "Paste from system clipboard" },
+    f = {
+      name = "File Path",
+      r = { "<cmd>let @+ = expand('%')<cr>", "Copy Relative Path" },
+      a = { "<cmd>let @+ = expand('%:p')<cr>", "Copy Absolute Path" },
     },
   },
-  {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-)
+
+  -- PACKER -------------------------------------------------------------------
+
+  p = {
+    name = "Packer",
+    S = { "<cmd>PackerStatus<cr>", "Status" },
+    c = { "<cmd>PackerCompile<cr>", "Compile" },
+    i = { "<cmd>PackerInstall<cr>", "Install" },
+    s = { "<cmd>PackerSync<cr>", "Sync" },
+    u = { "<cmd>PackerUpdate<cr>", "Update" },
+  },
+
+  -- WINDOW -------------------------------------------------------------------
+
+  w = {
+    name = "Window",
+    s = {
+      name = "Split Window",
+      s = { "<cmd>split<cr>", "Horizontal Split" },
+      v = { "<cmd>vsplit<cr>", "Vertical Split" },
+    },
+    c = { "<cmd>close<cr>", "Close Window" },
+    r = { "<C-w>=", "Reset Window Alignment" },
+  },
+
+  -- TAB ----------------------------------------------------------------------
+
+  T = {
+    name = "Tab",
+    n = { "<cmd>tab split<cr>", "New Tab" },
+    N = { "<cmd>tabedit<cr>", "New Empty Tab" },
+    c = { "<cmd>tabclose<cr>", "Close Tab" },
+  },
+
+  -- GIT ----------------------------------------------------------------------
+
+  g = {
+    name = "Git",
+    h = {
+      name = "Hunks",
+      -- n = { "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next Hunk" },
+      -- p = { "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Prev Hunk" },
+      p = { "<cmd>lua require('gitsigns').preview_hunk()<cr>", "Preview Hunk" },
+      r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset Hunk" },
+      s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage Hunk" },
+      u = { "<cmd>lua require('gitsigns').undo_stage_hunk()<cr>", "Undo Stage Hunk" },
+    },
+    c = {
+      name = "Commits",
+      c = { "<cmd>Telescope git_commits<cr>", "Commits" },
+      b = { "<cmd>Telescope git_bcommits<cr>", "Buffer Commits" },
+    },
+    b = { "<cmd>lua require('gitsigns').blame_line()<cr>", "Blame" },
+    s = { "<cmd>Telescope git_status<cr>", "Git Status" },
+    d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
+    R = { "<cmd>lua require('gitsigns').reset_buffer()<cr>", "Reset Buffer" },
+  },
+
+  -- LSP ----------------------------------------------------------------------
+
+  l = {
+    name = "LSP",
+    a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
+    h = { "<cmd>Lspsaga hover_doc<cr>", "Hover Doc" },
+    F = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+    r = { "<cmd>Lspsaga rename<cr>", "Rename" },
+    p = { "<cmd>Lspsaga peek_definition<cr>", "Peek Definition" },
+    f = { "<cmd>Lspsaga lsp_finder<cr>", "LSP Finder" },
+    d = {
+      name = "Diagnostics",
+      c = { "<cmd>Lspsaga show_cursor_diagnostics<cr>", "Show Cursor Diagnostic" },
+      l = { "<cmd>Lspsaga show_line_diagnostics<cr>", "Show Line Diagnostic" },
+      n = { "<cmd>Lspsaga diagnostic_jump_next<cr>", "Next Diagnostic" },
+      p = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Previous Diagnostic" },
+      b = { "<cmd>Telescope diagnostics bufnr=0<cr>", "List Buffer Diagnostics" },
+      w = { "<cmd>Telescope diagnostics<cr>", "List Workspace Diagnostics" },
+    },
+    s = {
+      name = "Symbols",
+      d = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+      w = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+    },
+    g = {
+      name = "Goto",
+      d = { "<cmd>Telescope lsp_definitions<cr>", "Goto Definition" },
+      t = { "<cmd>Telescope lsp_type_definitions<cr>", "Goto Type Definition" },
+      D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto Declaration" },
+      i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
+      r = { "<cmd>Telescope lsp_references<cr>", "Goto References" },
+    },
+    c = {
+      name = "Calls",
+      i = { "<cmd>Telescope lsp_incoming_calls<cr>", "Incomming Calls" },
+      o = { "<cmd>Telescope lsp_outgoing_calls<cr>", "Outgoing Calls" },
+    },
+    ["?"] = {
+      name = "System Info",
+      i = { "<cmd>LspInfo<cr>", "Info" },
+      I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+    },
+  },
+
+  -- SAERCH 2 -----------------------------------------------------------------
+
+  s = {
+    name = "Search",
+    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    R = { "<cmd>Telescope registers<cr>", "Registers" },
+    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+    C = { "<cmd>Telescope commands<cr>", "Commands" },
+  },
+}
+
+which_key.register(normal_leader_mappings, {
+  mode = "n",
+  prefix = "<leader>",
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
+})
 
 -- VISUAL ---------------------------------------------------------------------
 
-which_key.register(
-  {
-    c = {
-      name = "Clipboard",
-      c = { '"+y', "Copy selection to system clipboard" },
-    },
+local visual_leader_mappings = {
+  c = {
+    name = "Clipboard",
+    c = { '"+y', "Copy selection to system clipboard" },
   },
-  {
-    mode = "v",
-    prefix = "<leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
-)
+}
+
+which_key.register(visual_leader_mappings, {
+  mode = "v",
+  prefix = "<leader>",
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
+})

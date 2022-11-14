@@ -6,10 +6,6 @@ end
 require "user.lsp.mason"
 require("user.lsp.handlers").setup()
 require "user.lsp.null-ls"
-
--- This is a very long line that should trigger the auto line breaking with easye. I would
--- prefer if it would trigger, as I simply hate long lines..
-
-
-
+require "user.lsp.lspsaga"
+require "user.lsp.neodev"
 
