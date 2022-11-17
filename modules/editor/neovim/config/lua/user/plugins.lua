@@ -15,7 +15,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
-
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
   augroup packer_user_config
@@ -86,6 +85,10 @@ return packer.startup(function(use)
     -- https://github.com/tpope/vim-repeat
     "tpope/vim-repeat",
   }
+  use {
+    -- https://github.com/phaazon/hop.nvim
+    "phaazon/hop.nvim",
+  }
 
   -- COMMENT HANDLING ---------------------------------------------------------
 
@@ -103,6 +106,10 @@ return packer.startup(function(use)
   use {
     -- https://github.com/folke/tokyonight.nvim
     "folke/tokyonight.nvim"
+  }
+  use {
+    -- https://github.com/folke/lsp-colors.nvim
+    "folke/lsp-colors.nvim"
   }
 
   -- GUI IMPROVEMENTS ---------------------------------------------------------
@@ -154,6 +161,14 @@ return packer.startup(function(use)
 	use {
     -- https://github.com/petertriho/nvim-scrollbar
 		"petertriho/nvim-scrollbar",
+	}
+	use {
+    -- https://github.com/norcalli/nvim-colorizer.lua
+		"norcalli/nvim-colorizer.lua",
+	}
+	use {
+    -- https://github.com/folke/zen-mode.nvim
+		"folke/zen-mode.nvim",
 	}
 
   -- TREESITTER ---------------------------------------------------------------
@@ -242,6 +257,14 @@ return packer.startup(function(use)
   use {
     -- https://github.com/folke/neodev.nvim
     "folke/neodev.nvim",
+  }
+  use {
+    -- https://github.com/folke/trouble.nvim
+    "folke/trouble.nvim",
+  }
+  use {
+    -- https://github.com/folke/todo-comments.nvim
+    "folke/todo-comments.nvim",
   }
 
 

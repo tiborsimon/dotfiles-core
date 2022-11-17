@@ -8,4 +8,6 @@ require("user.lsp.handlers").setup()
 require "user.lsp.null-ls"
 require "user.lsp.lspsaga"
 require "user.lsp.neodev"
+require "user.lsp.trouble"
+require "user.lsp.todo"
 

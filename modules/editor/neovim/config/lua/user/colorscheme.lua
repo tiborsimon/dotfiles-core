@@ -1,5 +1,3 @@
-local colorscheme = "tokyonight"
-
 local status_ok, tokyonight = pcall(require, "tokyonight")
 if not status_ok then
   vim.notify("cannot find tokyonight color scheme!")
@@ -32,8 +30,4 @@ tokyonight.setup({
 })
 
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-  return
-end
+vim.cmd("colorscheme tokyonight-night")

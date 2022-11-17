@@ -12,6 +12,8 @@ require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
   local col = vim.fn.col(".") - 1
+  -- NOTE: The lua linter will complain about the next line, but it is okay as the typing
+  -- of the vim.fn.getline function is off..
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
@@ -69,7 +71,6 @@ cmp.setup({
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
-    ["<C-l>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()

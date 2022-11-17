@@ -15,6 +15,14 @@ telescope.setup {
       scroll_speed = 1,
     },
 
+    file_ignore_patterns = {
+      ".git",
+      "node_modules",
+      ".mypy_cache",
+      ".pytest_cache",
+      "__pycache__",
+    },
+
     -- prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
@@ -92,16 +100,10 @@ telescope.setup {
     },
   },
   pickers = {
-    -- layout_config = {
-    --   scroll_speed = 1,
-    -- },
-    -- find_files = {
-    --   theme = "dropdown",
-    --   preview = false,
-    --   layout_config = {
-    --     scroll_speed = 1,
-    --   }
-    -- },
+    find_files = {
+      theme = "dropdown",
+      hidden=true,
+    },
     -- git_commits = {
     --   layout_config = {
     --     scroll_speed = 1,

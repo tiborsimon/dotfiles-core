@@ -53,7 +53,7 @@ for _, server in pairs(servers) do
     capabilities = require("user.lsp.handlers").capabilities,
   }
 
-  server = vim.split(server, "@")[1]
+  server = vim.split(server, "@", {})[1]
 
   local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
   if require_ok then

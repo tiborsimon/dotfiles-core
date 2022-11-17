@@ -36,8 +36,6 @@ keymap("n", "<S-Right>", ":vertical resize +1<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "[b", ":bprevious<CR>", opts)
-keymap("n", "]b", ":bnext<CR>", opts)
 
 -- Navigate tabs
 keymap("n", "<Tab>", "gt", opts)
@@ -58,13 +56,28 @@ keymap("n", "<Return>", "*``", opts)
 keymap("n", "<C-n>", ":lua require('illuminate').goto_next_reference()<cr>", opts)
 keymap("n", "<C-p>", ":lua require('illuminate').goto_prev_reference()<cr>", opts)
 
--- Git hunk navigation
-keymap("n", "gn", ":lua require('gitsigns').next_hunk()<cr>", opts)
-keymap("n", "gp", ":lua require('gitsigns').prev_hunk()<cr>", opts)
-
 -- Mouse if for scrolling only
 keymap("n", "<LeftMouse>", "<nop>", opts)
 keymap("n", "<RightMouse>", "<nop>", opts)
+
+-- Bracket based mappings
+-- Switching buffers
+keymap("n", "[b", ":bprevious<CR>", opts)
+keymap("n", "]b", ":bnext<CR>", opts)
+
+-- Jumping to diagnostics
+keymap("n", "[d", ":Lspsaga diagnostic_jump_prev<cr>", opts)
+keymap("n", "]d", ":Lspsaga diagnostic_jump_next<cr>", opts)
+keymap("n", "gd", ":Lspsaga show_line_diagnostics<cr>", opts)
+
+-- Git hunk navigation
+keymap("n", "[h", ":lua require('gitsigns').next_hunk()<cr>", opts)
+keymap("n", "]h", ":lua require('gitsigns').prev_hunk()<cr>", opts)
+
+-- Navigate todo comments
+keymap("n", "[t", ":lua require('todo-comments').jump_next()<cr>", opts)
+keymap("n", "]t", ":lua require('todo-comments').jump_prev()<cr>", opts)
+keymap("n", "gt", ":TodoTrouble<cr>", opts)
 
 -- INSERT ---------------------------------------------------------------------
 
@@ -130,6 +143,8 @@ local normal_leader_mappings = {
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["r"] = { "<cmd>Telescope resume<cr>", "Resume Last Picker" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["<space>"] = { "<cmd>HopChar2<cr>", "Hop!!" },
+  ["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" },
 
   -- SEARCH -------------------------------------------------------------------
 
@@ -171,6 +186,7 @@ local normal_leader_mappings = {
     name = "Toggle",
     w = { "<cmd>:setlocal wrap!<cr>", "Toggle Wrapping" },
     b = { "<cmd>lua package.loaded.gitsigns.toggle_current_line_blame()<cr>", "Toggle Git Line Blame" },
+    c = { "<cmd>:ColorizerToggle<cr>", "Toggle Colorizer" },
   },
 
   -- CLIPBOARD ----------------------------------------------------------------
@@ -253,12 +269,12 @@ local normal_leader_mappings = {
     r = { "<cmd>Lspsaga rename<cr>", "Rename" },
     p = { "<cmd>Lspsaga peek_definition<cr>", "Peek Definition" },
     f = { "<cmd>Lspsaga lsp_finder<cr>", "LSP Finder" },
+    t = { "<cmd>TroubleToggle document_diagnostics<cr>", "Trouble List for Buffer" },
+    T = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Trouble List for Workspace" },
     d = {
       name = "Diagnostics",
       c = { "<cmd>Lspsaga show_cursor_diagnostics<cr>", "Show Cursor Diagnostic" },
       l = { "<cmd>Lspsaga show_line_diagnostics<cr>", "Show Line Diagnostic" },
-      n = { "<cmd>Lspsaga diagnostic_jump_next<cr>", "Next Diagnostic" },
-      p = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Previous Diagnostic" },
       b = { "<cmd>Telescope diagnostics bufnr=0<cr>", "List Buffer Diagnostics" },
       w = { "<cmd>Telescope diagnostics<cr>", "List Workspace Diagnostics" },
     },

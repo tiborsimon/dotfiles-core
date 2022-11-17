@@ -1,3 +1,5 @@
+-- GENERIC SIMPLE OPTIONS ---------------------------------------------------------------
+
 local options = {
   -- Encodings
   fileencoding = "utf-8", -- the encoding written to a file
@@ -9,7 +11,7 @@ local options = {
   undofile = true,        -- enable persistent undo
 
   -- Mouse integration
-  mouse = "n",            -- mouse is allowed in normal mode, see keymaps.lua file for more
+  mouse = "n",            -- mouse is only allowed in normal mode, see keymaps.lua file for more
 
   -- Clipboard handling
   clipboard = "",         -- don't access the system clipboard directly, we will access it through the registers
@@ -25,9 +27,7 @@ local options = {
   relativenumber = true,  -- set relative numbered lines
   numberwidth = 4,        -- set number column width to 2 {default 4}
   signcolumn = "yes",     -- always show the sign column, otherwise it would shift the text each time
-  wrap = true,            -- display lines as one long line
   conceallevel = 0,       -- so that `` is visible in markdown files
-  linebreak = true,       -- companion to wrap, don't split words
 
   -- Completion related options
   updatetime = 300,       -- faster completion (4000ms default)
@@ -52,15 +52,61 @@ local options = {
   tabstop = 2,            -- insert 2 spaces for a tab
   scrolloff = 8,          -- minimal number of screen lines to keep above and below the cursor
   sidescrolloff = 8,      -- minimal number of screen columns either side of cursor if wrap is `false`
-  textwidth = 90,         -- 
 }
 
-vim.opt.shortmess:append "c"
-
+-- Use the previous table to set up the options in a loop.
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
--- vim.cmd "set whichwrap+=<,>,[,],h,l"
+-- SHORTMESSAGE SETTINGS ----------------------------------------------------------------
+
+-- Don't give ins-completion-menu messages.
+vim.opt.shortmess:append "c"
+
+-- KEYWORD RECOGNITION ------------------------------------------------------------------
+
+-- Recognize dash-separated words as a whole. Handy for CSS and similar languages.
 vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+
+-- TEXT FORMATTING BEHAVIOR -------------------------------------------------------------
+
+-- Set up the text formatting behavior of the editor.
+
+vim.opt.textwidth = 90   -- Global wrap limit.
+vim.opt.wrap = false      -- Do not wrap line by default.
+vim.opt.linebreak = true -- Do not wrap words, only at whitespace.
+
+-- Set up formatoptions. Read more at ':h formatoptions'.
+
+-- [-][t] auto-wrap text
+-- [+][c] auto-wrap comments
+-- [+][r] insert comment leader on enter
+-- [-][o] insert comment leader on 'o'/'O'
+-- [-][/] for the 'o' option, insert comment leader for pure comments
+-- [+][q] format comments with 'gq'
+-- [-][w] recognize trailing whitespace for paragraphs
+-- [-][a] format paragraphs automatically
+-- [-][n] recognize numbered lists
+-- [-][2] indent first line for regular text processing
+-- [-][v] vi-compatible auto-wrapping
+-- [-][b] 'v' but inly on whitespace before the wrap margin
+-- [-][l] long lines are not broken in insert mode
+-- [-][m] additional break after 255 characters
+-- [-][M] don't insert space around multibyte character on joining
+-- [-][B] don't insert space between multibyte character on joining
+-- [-][1] don't break line after a one letter word
+-- [-][]] respect 'textwidth' rigorously
+-- [+][j] smart comment joining
+-- [-][p] don't break line on single space after a pariod
+
+-- NOTE: An autocommand is needed here as neovim sets this option during startup in this
+-- built-in file /opt/homebrew/Cellar/neovim/0.8.0/share/nvim/runtime/ftplugin/lua.vim
+-- To be able to see where the option was modified before use ':verbose set formatoptions'
+
+vim.cmd [[
+  augroup MyFormatOptions
+    autocmd!
+    autocmd BufEnter * setlocal formatoptions=crqj
+  augroup END
+]]
