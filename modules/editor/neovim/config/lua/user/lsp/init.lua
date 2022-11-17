@@ -10,4 +10,4 @@ require "user.lsp.lspsaga"
 require "user.lsp.neodev"
 require "user.lsp.trouble"
 require "user.lsp.todo"
-
+require "user.lsp.emmet"

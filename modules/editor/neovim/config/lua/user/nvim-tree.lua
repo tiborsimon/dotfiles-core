@@ -54,9 +54,9 @@ nvim_tree.setup {
       custom_only = false,
       list = {
         { key = { "<CR>", "o" }, action = "edit" },
-        { key = "v", action = "vsplit" },
-        { key = "s", action = "split" },
-        { key = "t", action = "tabnew" },
+        { key = "<C-v>", action = "vsplit" },
+        { key = "<C-s>", action = "split" },
+        { key = "<C-t>", action = "tabnew" },
       },
     },
   },
