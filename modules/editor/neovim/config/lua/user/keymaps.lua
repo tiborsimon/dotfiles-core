@@ -62,22 +62,22 @@ keymap("n", "<RightMouse>", "<nop>", opts)
 
 -- Bracket based mappings
 -- Switching buffers
-keymap("n", "[b", ":bprevious<CR>", opts)
 keymap("n", "]b", ":bnext<CR>", opts)
+keymap("n", "[b", ":bprevious<CR>", opts)
 
 -- Jumping to diagnostics
-keymap("n", "[d", ":Lspsaga diagnostic_jump_prev<cr>", opts)
 keymap("n", "]d", ":Lspsaga diagnostic_jump_next<cr>", opts)
+keymap("n", "[d", ":Lspsaga diagnostic_jump_prev<cr>", opts)
 keymap("n", "gd", ":Lspsaga show_line_diagnostics<cr>", opts)
 
 -- Git hunk navigation
-keymap("n", "[h", ":lua require('gitsigns').next_hunk()<cr>", opts)
-keymap("n", "]h", ":lua require('gitsigns').prev_hunk()<cr>", opts)
+keymap("n", "]h", ":lua require('gitsigns').next_hunk()<cr>", opts)
+keymap("n", "[h", ":lua require('gitsigns').prev_hunk()<cr>", opts)
 
 -- Navigate todo comments
-keymap("n", "[t", ":lua require('todo-comments').jump_next()<cr>", opts)
-keymap("n", "]t", ":lua require('todo-comments').jump_prev()<cr>", opts)
-keymap("n", "gt", ":TodoTrouble<cr>", opts)
+keymap("n", "]t", ":lua require('todo-comments').jump_next()<cr>", opts)
+keymap("n", "[t", ":lua require('todo-comments').jump_prev()<cr>", opts)
+keymap("n", "tt", ":TodoTelescope<cr>", opts)
 
 -- INSERT ---------------------------------------------------------------------
 
@@ -140,7 +140,7 @@ end
 
 local normal_leader_mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Projects" },
   ["r"] = { "<cmd>Telescope resume<cr>", "Resume Last Picker" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["<space>"] = { "<cmd>HopChar2<cr>", "Hop!!" },
@@ -167,6 +167,7 @@ local normal_leader_mappings = {
     b = { "<cmd>Telescope file_browser<cr>", "Browse Files" },
     s = { "<cmd>w!<CR>", "Save File" },
     p = { "<cmd>echo expand('%')<cr>", "Print File Path" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Recently Opened Files" },
   },
 
   -- BUFFERS ------------------------------------------------------------------
@@ -204,7 +205,7 @@ local normal_leader_mappings = {
 
   -- PACKER -------------------------------------------------------------------
 
-  p = {
+  P = {
     name = "Packer",
     S = { "<cmd>PackerStatus<cr>", "Status" },
     c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -311,7 +312,6 @@ local normal_leader_mappings = {
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
