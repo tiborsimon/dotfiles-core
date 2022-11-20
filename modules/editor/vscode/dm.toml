@@ -6,8 +6,8 @@ Custom configuration for VSCode focusing on vim compatibility.
 """
 
 [enabled]
-macos = true
-manjaro = true
+macos = false
+manjaro = false
 
 [variables__macos]
 CASKS = [
