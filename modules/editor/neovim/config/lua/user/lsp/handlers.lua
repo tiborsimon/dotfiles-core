@@ -56,6 +56,7 @@ M.on_attach = function(client, _)
     client.server_capabilities.documentFormattingProvider = false
   end
 
+  -- ARTICLE: Prevent remapping of gq in lua files.
   if client.name == "sumneko_lua" then
     client.server_capabilities.documentFormattingProvider = false
     -- Prevent the implicitly mapped gq formatting for the lua language server..

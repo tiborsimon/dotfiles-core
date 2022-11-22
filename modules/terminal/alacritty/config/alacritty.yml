@@ -67,7 +67,8 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 1.0
+  # Fixing the jitter on macOS animations: https://github.com/alacritty/alacritty/issues/4474#issuecomment-803972329
+  opacity: 0.999999
 
   # Startup Mode (changes require restart)
   #
@@ -530,7 +531,7 @@ mouse:
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  hide_when_typing: true
+  hide_when_typing: false
 
 # Regex hints
 #

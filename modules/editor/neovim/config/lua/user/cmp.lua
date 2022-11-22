@@ -133,9 +133,53 @@ cmp.setup({
   },
 })
 
+local feedkeys = cmp.config.mapping.feedkeys
+local keymap = cmp.config.mapping.keymap
+
+-- ARTICLE: remap the default cmdline mappings (C-n, C-p) to my default ones (C-j, C-k)
 -- `/` cmdline setup.
 cmp.setup.cmdline("/", {
-  mapping = cmp.mapping.preset.cmdline(),
+  mapping = {
+    ['<Tab>'] = {
+      c = function()
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          feedkeys.call(keymap.t('<C-z>'), 'n')
+        end
+      end,
+    },
+    ['<S-Tab>'] = {
+      c = function()
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          feedkeys.call(keymap.t('<C-z>'), 'n')
+        end
+      end,
+    },
+    ['<C-j>'] = {
+      c = function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback()
+        end
+      end,
+    },
+    ['<C-k>'] = {
+      c = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+      end,
+    },
+    ['<C-e>'] = {
+      c = cmp.mapping.close(),
+    },
+  },
   sources = {
     { name = "buffer" },
   },
@@ -143,7 +187,47 @@ cmp.setup.cmdline("/", {
 
 -- `:` cmdline setup.
 cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
+  mapping = {
+    ['<Tab>'] = {
+      c = function()
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          feedkeys.call(keymap.t('<C-z>'), 'n')
+        end
+      end,
+    },
+    ['<S-Tab>'] = {
+      c = function()
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          feedkeys.call(keymap.t('<C-z>'), 'n')
+        end
+      end,
+    },
+    ['<C-j>'] = {
+      c = function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback()
+        end
+      end,
+    },
+    ['<C-k>'] = {
+      c = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+      end,
+    },
+    ['<C-e>'] = {
+      c = cmp.mapping.close(),
+    },
+  },
   sources = cmp.config.sources({
     { name = "path" },
   }, {

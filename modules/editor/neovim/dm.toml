@@ -20,10 +20,9 @@ ENV = [
 FORMULAE = [
   "neovim",
   "fzy", "fzf",  # Fuzzy finder tools.
-  "ripgrep",  # Fast alternative to grep, optinal dependency for telescope
-  "fd", # Fast alternative to find, optional dependency for telescope
-  "lua-language-server",
-  "tree-sitter",
+  "ripgrep",  # Fast alternative to grep, optinal dependency for Telescope
+  "fd", # Fast alternative to find, optional dependency for Telescope
+  "wget", # Required by Mason
 ]
 ALIAS = [
   "vim=nvim",
@@ -32,14 +31,17 @@ ALIAS = [
 [variables__manjaro]
 PACMAN = [
   "neovim",  # Base package.
-  "fzy", "ripgrep", "fzf",  # Additional required packages..
+  "fzy",
+  "ripgrep",
+  "fzf",
+  "wget",
 ]
 ALIAS = [
   "vim=nvim",
 ]
 
 [[link]]
-name = "Initialization file"
+name = "Configuration directory"
 path_to_target = "./config"
 path_to_symlink = "$HOME/.config/nvim"
 

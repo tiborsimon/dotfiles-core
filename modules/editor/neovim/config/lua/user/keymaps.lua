@@ -210,7 +210,7 @@ local normal_leader_mappings = {
     S = { "<cmd>PackerStatus<cr>", "Status" },
     c = { "<cmd>PackerCompile<cr>", "Compile" },
     i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync --preview<cr>", "Sync with Preview" },
+    s = { "<cmd>PackerSync<cr>", "Sync" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
 

@@ -11,6 +11,8 @@ telescope.setup {
     -- Available layout strategies: horizontal, vertical, center, cursor, flex,
     -- bottom_pane
     layout_strategy = "vertical",
+    -- ARTICLE: This settings was not self evident from the docs.. The location of the
+    -- 'layout-config' needs to be added here!
     layout_config = {
       scroll_speed = 1,
     },

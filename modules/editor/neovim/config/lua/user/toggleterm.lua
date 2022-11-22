@@ -5,6 +5,7 @@ end
 
 toggleterm.setup({
 	size = 20,
+  -- ARTICLE: Custom TMUX based toggleterm.
   -- Global mapping was not set in the global config to be able to manually map it later
   -- on for the custom Terminal.
 	-- open_mapping = [[<c-\>]],
