@@ -11,7 +11,7 @@ manjaro = true
 
 [variables]
 ENV = [
-  "TERM=alacritty",
+  "TERM=screen-256color",
 ]
 
 [variables__macos]
