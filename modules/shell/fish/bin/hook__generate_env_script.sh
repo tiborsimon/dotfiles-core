@@ -4,6 +4,8 @@ TARGET_FILE='./config/generated/env_script.fish'
 posix_adapter__mkdir --parents "$(posix_adapter__dirname "$TARGET_FILE")"
 posix_adapter__rm --force "$TARGET_FILE"
 
+# BUG: This UNDERLINE variable seems to be undefined when the terminal was incorrectly
+# configured. It has to be assigned with an empty string if that capability is missing.
 dm__logger__task "Generating env script at ${UNDERLINE}${TARGET_FILE}${RESET}.."
 dm__logger__separator
 
