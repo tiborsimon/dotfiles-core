@@ -100,7 +100,7 @@ vim.opt.linebreak = true -- Do not wrap words, only at whitespace.
 -- [+][j] smart comment joining
 -- [-][p] don't break line on single space after a pariod
 
--- NOTE: An autocommand is needed here as neovim sets this option during startup in this
+-- ARTICLE: An autocommand is needed here as neovim sets this option during startup in this
 -- built-in file /opt/homebrew/Cellar/neovim/0.8.0/share/nvim/runtime/ftplugin/lua.vim
 -- To be able to see where the option was modified before use ':verbose set formatoptions'
 
