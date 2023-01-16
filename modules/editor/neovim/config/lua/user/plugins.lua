@@ -108,8 +108,14 @@ return packer.startup(function(use)
 
   -- COLORSCHEMES -------------------------------------------------------------
   use {
-    -- https://github.com/folke/tokyonight.nvim
-    "folke/tokyonight.nvim"
+    {
+      -- https://github.com/folke/tokyonight.nvim
+      "folke/tokyonight.nvim"
+    },
+    {
+      -- https://github.com/NLKNguyen/papercolor-theme
+      "NLKNguyen/papercolor-theme"
+    }
   }
 
   -- GUI IMPROVEMENTS ---------------------------------------------------------
