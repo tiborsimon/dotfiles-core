@@ -112,12 +112,15 @@ keymap("x", ";", ":", { noremap = true })
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
+-- Alignment mappings
+keymap("x", "ga", "<Plug>(EasyAlign)", opts)
+
 -- COMMAND --------------------------------------------------------------------
 
-keymap("c", "<C-h>", "<left>", { noremap = false })
+keymap("c", "<C-h>", "<left>",  { noremap = false })
 keymap("c", "<C-l>", "<right>", { noremap = false })
-keymap("c", "<C-j>", "<down>", { noremap = false })
-keymap("c", "<C-k>", "<up>", { noremap = false })
+keymap("c", "<C-j>", "<down>",  { noremap = false })
+keymap("c", "<C-k>", "<up>",    { noremap = false })
 
 -- TERMINAL -------------------------------------------------------------------
 
@@ -152,6 +155,7 @@ local normal_leader_mappings = {
     name = "Search",
     ["/"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     l = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+    c = { "<cmd>Telescope grep_string<cr>", "Grep String at Cursor" },
     n = { "<cmd>lua require('illuminate').goto_next_reference()<cr>", "Next occurence" },
     p = { "<cmd>lua require('illuminate').goto_prev_reference()<cr>", "Next occurence" },
   },
@@ -270,6 +274,7 @@ local normal_leader_mappings = {
     r = { "<cmd>Lspsaga rename<cr>", "Rename" },
     p = { "<cmd>Lspsaga peek_definition<cr>", "Peek Definition" },
     f = { "<cmd>Lspsaga lsp_finder<cr>", "LSP Finder" },
+    o = { "<cmd>Lspsaga outline<cr>", "Toggle Outline" },
     t = { "<cmd>TroubleToggle document_diagnostics<cr>", "Trouble List for Buffer" },
     T = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Trouble List for Workspace" },
     d = {

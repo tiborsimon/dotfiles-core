@@ -190,6 +190,11 @@ _G.packer_plugins = {
     path = "/Users/tibor/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
     url = "https://github.com/karb94/neoscroll.nvim"
   },
+  ["noctis.nvim"] = {
+    loaded = true,
+    path = "/Users/tibor/.local/share/nvim/site/pack/packer/start/noctis.nvim",
+    url = "https://github.com/tiborsimon/noctis.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/tibor/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -303,7 +308,7 @@ _G.packer_plugins = {
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/Users/tibor/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
+    url = "https://github.com/tiborsimon/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
@@ -314,6 +319,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tibor/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
+  },
+  ["vim-easy-align"] = {
+    loaded = true,
+    path = "/Users/tibor/.local/share/nvim/site/pack/packer/start/vim-easy-align",
+    url = "https://github.com/junegunn/vim-easy-align"
   },
   ["vim-illuminate"] = {
     loaded = true,

@@ -92,6 +92,10 @@ return packer.startup(function(use)
       "phaazon/hop.nvim",
       tag = "*",
     },
+    {
+      -- https://github.com/junegunn/vim-easy-align
+      "junegunn/vim-easy-align",
+    },
   }
 
   -- COMMENT HANDLING ---------------------------------------------------------
@@ -109,8 +113,12 @@ return packer.startup(function(use)
   -- COLORSCHEMES -------------------------------------------------------------
   use {
     {
-      -- https://github.com/folke/tokyonight.nvim
-      "folke/tokyonight.nvim"
+      -- https://github.com/tiborsimon/noctis.nvim
+      "tiborsimon/noctis.nvim"
+    },
+    {
+      -- https://github.com/tiborsimon/tokyonight.nvim
+      "tiborsimon/tokyonight.nvim"
     },
     {
       -- https://github.com/NLKNguyen/papercolor-theme

@@ -6,7 +6,7 @@ Custom configuration for VSCode focusing on vim compatibility.
 """
 
 [enabled]
-macos = false
+macos = true
 manjaro = false
 
 [variables__macos]

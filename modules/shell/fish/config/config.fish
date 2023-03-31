@@ -20,4 +20,7 @@ if status is-interactive
 
   # Loading the collected post config commands..
   source $HOME/.config/fish/generated/post_config_script.fish
+
+  # Loading the generated python PDM PEP582 integration..
+  source $HOME/.config/fish/generated/python_pdm_pep582.fish
 end

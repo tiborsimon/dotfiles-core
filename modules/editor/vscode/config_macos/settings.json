@@ -216,9 +216,9 @@
     "terminal.integrated.scrollback": 100000,
     "editor.minimap.enabled": false,
     "workbench.iconTheme": "material-icon-theme",
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "vim.smartRelativeLine": true,
-    "workbench.colorTheme": "Noctis Sereno",
+    "workbench.colorTheme": "Noctis",
     "python.venvPath": "$VIRTUALFISH_HOME",
     "terminal.integrated.gpuAcceleration": "on",
     "files.exclude": {

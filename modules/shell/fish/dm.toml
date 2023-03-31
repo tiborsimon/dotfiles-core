@@ -78,6 +78,11 @@ name = "GENERATE_POST_CONFIG_SCRIPT"
 path_to_script = "./bin/hook__generate_post_config_script.sh"
 priority = 0
 
+[[shell_script_hook]]
+name = "GENERATE_PYTHON_PEP582_SHIM"
+path_to_script = "./bin/hook__generate_python_pdm_pep582_shim.sh"
+priority = 0
+
 [[variable_status_hook]]
 variable_name = "ALIAS"
 path_to_script = "./bin/hook__variable_status.sh"
